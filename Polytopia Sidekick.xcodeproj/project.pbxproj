@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		233E399224A968EA002A931F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233E399124A968EA002A931F /* AppDelegate.swift */; };
+		233E399424A968EA002A931F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233E399324A968EA002A931F /* SceneDelegate.swift */; };
+		233E399624A968EA002A931F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233E399524A968EA002A931F /* ContentView.swift */; };
+		233E399824A968ED002A931F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 233E399724A968ED002A931F /* Assets.xcassets */; };
+		233E399B24A968ED002A931F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 233E399A24A968ED002A931F /* Preview Assets.xcassets */; };
+		233E399E24A968ED002A931F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 233E399C24A968ED002A931F /* LaunchScreen.storyboard */; };
+		233E39A924A968ED002A931F /* Polytopia_SidekickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233E39A824A968ED002A931F /* Polytopia_SidekickTests.swift */; };
+		233E39B424A968EE002A931F /* Polytopia_SidekickUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233E39B324A968EE002A931F /* Polytopia_SidekickUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		233E39A524A968ED002A931F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 233E398624A968EA002A931F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 233E398D24A968EA002A931F;
+			remoteInfo = "Polytopia Sidekick";
+		};
+		233E39B024A968EE002A931F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 233E398624A968EA002A931F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 233E398D24A968EA002A931F;
+			remoteInfo = "Polytopia Sidekick";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		233E398E24A968EA002A931F /* Polytopia Sidekick.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Polytopia Sidekick.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		233E399124A968EA002A931F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		233E399324A968EA002A931F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		233E399524A968EA002A931F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		233E399724A968ED002A931F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		233E399A24A968ED002A931F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		233E399D24A968ED002A931F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		233E399F24A968ED002A931F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		233E39A424A968ED002A931F /* Polytopia SidekickTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Polytopia SidekickTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		233E39A824A968ED002A931F /* Polytopia_SidekickTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polytopia_SidekickTests.swift; sourceTree = "<group>"; };
+		233E39AA24A968EE002A931F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		233E39AF24A968EE002A931F /* Polytopia SidekickUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Polytopia SidekickUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		233E39B324A968EE002A931F /* Polytopia_SidekickUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polytopia_SidekickUITests.swift; sourceTree = "<group>"; };
+		233E39B524A968EE002A931F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		233E398B24A968EA002A931F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		233E39A124A968ED002A931F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		233E39AC24A968EE002A931F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		233E398524A968EA002A931F = {
+			isa = PBXGroup;
+			children = (
+				233E399024A968EA002A931F /* Polytopia Sidekick */,
+				233E39A724A968ED002A931F /* Polytopia SidekickTests */,
+				233E39B224A968EE002A931F /* Polytopia SidekickUITests */,
+				233E398F24A968EA002A931F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		233E398F24A968EA002A931F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				233E398E24A968EA002A931F /* Polytopia Sidekick.app */,
+				233E39A424A968ED002A931F /* Polytopia SidekickTests.xctest */,
+				233E39AF24A968EE002A931F /* Polytopia SidekickUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		233E399024A968EA002A931F /* Polytopia Sidekick */ = {
+			isa = PBXGroup;
+			children = (
+				233E399124A968EA002A931F /* AppDelegate.swift */,
+				233E399324A968EA002A931F /* SceneDelegate.swift */,
+				233E399524A968EA002A931F /* ContentView.swift */,
+				233E399724A968ED002A931F /* Assets.xcassets */,
+				233E399C24A968ED002A931F /* LaunchScreen.storyboard */,
+				233E399F24A968ED002A931F /* Info.plist */,
+				233E399924A968ED002A931F /* Preview Content */,
+			);
+			path = "Polytopia Sidekick";
+			sourceTree = "<group>";
+		};
+		233E399924A968ED002A931F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				233E399A24A968ED002A931F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		233E39A724A968ED002A931F /* Polytopia SidekickTests */ = {
+			isa = PBXGroup;
+			children = (
+				233E39A824A968ED002A931F /* Polytopia_SidekickTests.swift */,
+				233E39AA24A968EE002A931F /* Info.plist */,
+			);
+			path = "Polytopia SidekickTests";
+			sourceTree = "<group>";
+		};
+		233E39B224A968EE002A931F /* Polytopia SidekickUITests */ = {
+			isa = PBXGroup;
+			children = (
+				233E39B324A968EE002A931F /* Polytopia_SidekickUITests.swift */,
+				233E39B524A968EE002A931F /* Info.plist */,
+			);
+			path = "Polytopia SidekickUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		233E398D24A968EA002A931F /* Polytopia Sidekick */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 233E39B824A968EE002A931F /* Build configuration list for PBXNativeTarget "Polytopia Sidekick" */;
+			buildPhases = (
+				233E398A24A968EA002A931F /* Sources */,
+				233E398B24A968EA002A931F /* Frameworks */,
+				233E398C24A968EA002A931F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Polytopia Sidekick";
+			productName = "Polytopia Sidekick";
+			productReference = 233E398E24A968EA002A931F /* Polytopia Sidekick.app */;
+			productType = "com.apple.product-type.application";
+		};
+		233E39A324A968ED002A931F /* Polytopia SidekickTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 233E39BB24A968EE002A931F /* Build configuration list for PBXNativeTarget "Polytopia SidekickTests" */;
+			buildPhases = (
+				233E39A024A968ED002A931F /* Sources */,
+				233E39A124A968ED002A931F /* Frameworks */,
+				233E39A224A968ED002A931F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				233E39A624A968ED002A931F /* PBXTargetDependency */,
+			);
+			name = "Polytopia SidekickTests";
+			productName = "Polytopia SidekickTests";
+			productReference = 233E39A424A968ED002A931F /* Polytopia SidekickTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		233E39AE24A968EE002A931F /* Polytopia SidekickUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 233E39BE24A968EE002A931F /* Build configuration list for PBXNativeTarget "Polytopia SidekickUITests" */;
+			buildPhases = (
+				233E39AB24A968EE002A931F /* Sources */,
+				233E39AC24A968EE002A931F /* Frameworks */,
+				233E39AD24A968EE002A931F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				233E39B124A968EE002A931F /* PBXTargetDependency */,
+			);
+			name = "Polytopia SidekickUITests";
+			productName = "Polytopia SidekickUITests";
+			productReference = 233E39AF24A968EE002A931F /* Polytopia SidekickUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		233E398624A968EA002A931F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1150;
+				LastUpgradeCheck = 1150;
+				ORGANIZATIONNAME = "Ray Sun";
+				TargetAttributes = {
+					233E398D24A968EA002A931F = {
+						CreatedOnToolsVersion = 11.5;
+					};
+					233E39A324A968ED002A931F = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 233E398D24A968EA002A931F;
+					};
+					233E39AE24A968EE002A931F = {
+						CreatedOnToolsVersion = 11.5;
+						TestTargetID = 233E398D24A968EA002A931F;
+					};
+				};
+			};
+			buildConfigurationList = 233E398924A968EA002A931F /* Build configuration list for PBXProject "Polytopia Sidekick" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 233E398524A968EA002A931F;
+			productRefGroup = 233E398F24A968EA002A931F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				233E398D24A968EA002A931F /* Polytopia Sidekick */,
+				233E39A324A968ED002A931F /* Polytopia SidekickTests */,
+				233E39AE24A968EE002A931F /* Polytopia SidekickUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		233E398C24A968EA002A931F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				233E399E24A968ED002A931F /* LaunchScreen.storyboard in Resources */,
+				233E399B24A968ED002A931F /* Preview Assets.xcassets in Resources */,
+				233E399824A968ED002A931F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		233E39A224A968ED002A931F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		233E39AD24A968EE002A931F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		233E398A24A968EA002A931F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				233E399224A968EA002A931F /* AppDelegate.swift in Sources */,
+				233E399424A968EA002A931F /* SceneDelegate.swift in Sources */,
+				233E399624A968EA002A931F /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		233E39A024A968ED002A931F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				233E39A924A968ED002A931F /* Polytopia_SidekickTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		233E39AB24A968EE002A931F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				233E39B424A968EE002A931F /* Polytopia_SidekickUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		233E39A624A968ED002A931F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 233E398D24A968EA002A931F /* Polytopia Sidekick */;
+			targetProxy = 233E39A524A968ED002A931F /* PBXContainerItemProxy */;
+		};
+		233E39B124A968EE002A931F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 233E398D24A968EA002A931F /* Polytopia Sidekick */;
+			targetProxy = 233E39B024A968EE002A931F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		233E399C24A968ED002A931F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				233E399D24A968ED002A931F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		233E39B624A968EE002A931F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		233E39B724A968EE002A931F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		233E39B924A968EE002A931F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Polytopia Sidekick/Preview Content\"";
+				DEVELOPMENT_TEAM = 248F6JBWPR;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Polytopia Sidekick/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raysun.Polytopia-Sidekick";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		233E39BA24A968EE002A931F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"Polytopia Sidekick/Preview Content\"";
+				DEVELOPMENT_TEAM = 248F6JBWPR;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Polytopia Sidekick/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raysun.Polytopia-Sidekick";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		233E39BC24A968EE002A931F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 248F6JBWPR;
+				INFOPLIST_FILE = "Polytopia SidekickTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raysun.Polytopia-SidekickTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Polytopia Sidekick.app/Polytopia Sidekick";
+			};
+			name = Debug;
+		};
+		233E39BD24A968EE002A931F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 248F6JBWPR;
+				INFOPLIST_FILE = "Polytopia SidekickTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raysun.Polytopia-SidekickTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Polytopia Sidekick.app/Polytopia Sidekick";
+			};
+			name = Release;
+		};
+		233E39BF24A968EE002A931F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 248F6JBWPR;
+				INFOPLIST_FILE = "Polytopia SidekickUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raysun.Polytopia-SidekickUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Polytopia Sidekick";
+			};
+			name = Debug;
+		};
+		233E39C024A968EE002A931F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 248F6JBWPR;
+				INFOPLIST_FILE = "Polytopia SidekickUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raysun.Polytopia-SidekickUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Polytopia Sidekick";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		233E398924A968EA002A931F /* Build configuration list for PBXProject "Polytopia Sidekick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				233E39B624A968EE002A931F /* Debug */,
+				233E39B724A968EE002A931F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		233E39B824A968EE002A931F /* Build configuration list for PBXNativeTarget "Polytopia Sidekick" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				233E39B924A968EE002A931F /* Debug */,
+				233E39BA24A968EE002A931F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		233E39BB24A968EE002A931F /* Build configuration list for PBXNativeTarget "Polytopia SidekickTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				233E39BC24A968EE002A931F /* Debug */,
+				233E39BD24A968EE002A931F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		233E39BE24A968EE002A931F /* Build configuration list for PBXNativeTarget "Polytopia SidekickUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				233E39BF24A968EE002A931F /* Debug */,
+				233E39C024A968EE002A931F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 233E398624A968EA002A931F /* Project object */;
+}
