@@ -41,9 +41,12 @@ struct TroopView: View {
                             .resizable()
                             .opacity(self.userData.selectedTroops[self.troopIndex].isDefended ? 1.0 : 0.5)
                             .frame(width: 22, height: 22)
-                        Image(systemName: self.userData.selectedTroops[self.troopIndex].isWalled ? "shield" : "")
+                        if (self.userData.selectedTroops[self.troopIndex].isWalled) {
+                            Image(systemName: self.userData.selectedTroops[self.troopIndex].isWalled ? "shield" : "")
                             .resizable()
                             .frame(width: 30, height: 30)
+                        }
+
                     }
                     .onTapGesture {
                         if !self.userData.selectedTroops[self.troopIndex].isDefended {

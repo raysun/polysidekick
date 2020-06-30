@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  CalcView.swift
 //  Polytopia Sidekick
 //
 //  Created by Ray Sun on 6/28/20.
