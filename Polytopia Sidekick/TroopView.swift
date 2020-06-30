@@ -42,7 +42,7 @@ struct TroopView: View {
                             .opacity(self.userData.selectedTroops[self.troopIndex].isDefended ? 1.0 : 0.5)
                             .frame(width: 22, height: 22)
                         if (self.userData.selectedTroops[self.troopIndex].isWalled) {
-                            Image(systemName: self.userData.selectedTroops[self.troopIndex].isWalled ? "shield" : "")
+                            Image(systemName: "shield")
                             .resizable()
                             .frame(width: 30, height: 30)
                         }
