@@ -14,24 +14,24 @@ class Calc {
         var attackers = troops
         attackers.remove(at: 0)
         let attackerHPs = [Double]()
-        return optim(defender: defender, attackers: attackers, sequence: [], remaining: attackers, defenderHealth: defender.hp, attackerHPs: attackerHPs)
+        return optim(defender: defender, attackers: attackers, sequence: [], remaining: attackers, defenderHealth: defender.hp)
     }
 
-    private static func optim(defender: Troop, attackers: [Troop], sequence: [Troop], remaining: [Troop], defenderHealth: Double, attackerHPs: [Double]) -> OptimizationValue {
+    private static func optim(defender: Troop, attackers: [Troop], sequence: [Troop], remaining: [Troop], defenderHealth: Double) -> OptimizationValue {
         if remaining.count == 0 || defenderHealth <= 0 {
-            return OptimizationValue(defenderHealth: defenderHealth, sequence: sequence, attackerHPs: attackerHPs)
+            return OptimizationValue(defenderHealth: defenderHealth, sequence: sequence)
         } else {
             var returnedValues = [OptimizationValue]()
-            for troop in remaining {
-                let localDefenderHealth = defenderHealth - round(4.5 * troop.attack * troop.attack/(troop.attack + defender.defense))
-                var localAttackerHPs = attackerHPs
-                if (localDefenderHealth > 0) {
-                    let localAttackerHP = troop.hp - round(4.5 * defender.defense * defender.defense/(defender.defense + troop.attack))
-                    localAttackerHPs.append(localAttackerHP)
-                } else {
-                    localAttackerHPs.append(troop.hp)
-                }
+            for var troop in remaining {
+                let damageToDefender = round(4.5 * troop.attack * troop.scaledAttack/(troop.scaledAttack + defender.scaledDefense))
+                print("Troop: \(troop.imageURL), Defender: \(defender.imageURL), Damage to defender: \(damageToDefender)")
+                let localDefenderHealth = defenderHealth - damageToDefender
                 var localSequence = sequence
+                if (localDefenderHealth > 0) {
+                    let damageToAttacker = round(4.5 * defender.defense * defender.scaledDefense/(defender.scaledDefense + troop.scaledAttack))
+                    print("Damage to attacker: \(damageToAttacker)")
+                    troop.hp = troop.hp - damageToAttacker
+                }
                 localSequence.append(troop)
                 var i: Int = 0
                 var localRemaining = remaining
@@ -42,7 +42,7 @@ class Calc {
                     }
                     i += 1
                 }
-                returnedValues.append(optim(defender: defender, attackers: attackers, sequence: localSequence, remaining: localRemaining, defenderHealth: localDefenderHealth, attackerHPs: localAttackerHPs))
+                returnedValues.append(optim(defender: defender, attackers: attackers, sequence: localSequence, remaining: localRemaining, defenderHealth: localDefenderHealth))
             }
             returnedValues = returnedValues.sorted {
                 $0.defenderHealth < $1.defenderHealth || ($0.defenderHealth == $1.defenderHealth && $0.attackerHPs.reduce(0,+) > $1.attackerHPs.reduce(0,+))

@@ -49,6 +49,13 @@ struct Troop: Identifiable {
     var isDefended = false
     var isUpgraded = false
 
+    var scaledAttack: Double {
+        attack * hp / maxHP
+    }
+    var scaledDefense: Double {
+        defense * hp / maxHP * (isWalled ? 4.0 : isDefended ? 1.5 : 1.0)
+    }
+
     init(imageURL: String, maxHP: Double, attack: Double, defense: Double) {
         self.imageURL = imageURL
         self.maxHP = maxHP
