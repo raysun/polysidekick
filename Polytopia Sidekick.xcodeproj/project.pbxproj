@@ -464,17 +464,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Polytopia Sidekick/Preview Content\"";
-				DEVELOPMENT_TEAM = 248F6JBWPR;
+				DEVELOPMENT_TEAM = NLYPAD9HC3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Polytopia Sidekick/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raysun.Polytopia-Sidekick";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raysun.me.Polytopia-Sidekick";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -484,17 +484,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Polytopia Sidekick/Preview Content\"";
-				DEVELOPMENT_TEAM = 248F6JBWPR;
+				DEVELOPMENT_TEAM = NLYPAD9HC3;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = "Polytopia Sidekick/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.raysun.Polytopia-Sidekick";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.raysun.me.Polytopia-Sidekick";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
