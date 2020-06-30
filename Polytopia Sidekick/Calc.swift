@@ -13,7 +13,6 @@ class Calc {
         let defender = troops[0]
         var attackers = troops
         attackers.remove(at: 0)
-        let attackerHPs = [Double]()
         return optim(defender: defender, attackers: attackers, sequence: [], remaining: attackers, defenderHealth: defender.hp)
     }
 
@@ -45,7 +44,8 @@ class Calc {
                 returnedValues.append(optim(defender: defender, attackers: attackers, sequence: localSequence, remaining: localRemaining, defenderHealth: localDefenderHealth))
             }
             returnedValues = returnedValues.sorted {
-                $0.defenderHealth < $1.defenderHealth || ($0.defenderHealth == $1.defenderHealth && $0.attackerHPs.reduce(0,+) > $1.attackerHPs.reduce(0,+))
+                $0.defenderHealth < $1.defenderHealth
+//                    || ($0.defenderHealth == $1.defenderHealth && $0.attackerHPs.reduce(0,+) > $1.attackerHPs.reduce(0,+))
             }
             return returnedValues[0]
         }
