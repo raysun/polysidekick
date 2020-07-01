@@ -8,10 +8,20 @@
 
 import Foundation
 
+
+private func sumHealth(_ x: Double, _ y: Troop) -> Double {
+    return x + y.hp
+}
+
 class Calc {
     static func calculate(troops: [Troop]) -> OptimizationValue {
-        let defender = troops[0]
-        var attackers = troops
+        var tmpTroops = [Troop]()
+        for var troop in troops {
+            troop.originalHP = troop.hp
+            tmpTroops.append(troop)
+        }
+        let defender = tmpTroops[0]
+        var attackers = tmpTroops
         attackers.remove(at: 0)
         return optim(defender: defender, attackers: attackers, sequence: [], remaining: attackers, defenderHealth: defender.hp)
     }
@@ -24,12 +34,12 @@ class Calc {
             for var troop in remaining {
                 let damageToDefender = round(4.5 * troop.attack * troop.scaledAttack/(troop.scaledAttack + defender.scaledDefense))
                 print("Troop: \(troop.imageURL), Defender: \(defender.imageURL), Damage to defender: \(damageToDefender)")
-                let localDefenderHealth = defenderHealth - damageToDefender
+                let localDefenderHealth = max(0, defenderHealth - damageToDefender)
                 var localSequence = sequence
                 if (localDefenderHealth > 0) {
                     let damageToAttacker = round(4.5 * defender.defense * defender.scaledDefense/(defender.scaledDefense + troop.scaledAttack))
                     print("Damage to attacker: \(damageToAttacker)")
-                    troop.hp = troop.hp - damageToAttacker
+                    troop.hp = max(0, troop.hp - damageToAttacker)
                 }
                 localSequence.append(troop)
                 var i: Int = 0
@@ -45,7 +55,7 @@ class Calc {
             }
             returnedValues = returnedValues.sorted {
                 $0.defenderHealth < $1.defenderHealth
-//                    || ($0.defenderHealth == $1.defenderHealth && $0.attackerHPs.reduce(0,+) > $1.attackerHPs.reduce(0,+))
+                    || ($0.defenderHealth == $1.defenderHealth && $0.sequence.reduce(0, sumHealth) > $1.sequence.reduce(0, sumHealth))
             }
             return returnedValues[0]
         }

@@ -48,6 +48,7 @@ struct Troop: Identifiable {
     var isWalled = false
     var isDefended = false
     var isUpgraded = false
+    var originalHP = 0.0    // Used later to cache the starting HP before simulation
 
     var scaledAttack: Double {
         attack * hp / maxHP

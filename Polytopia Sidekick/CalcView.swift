@@ -11,7 +11,6 @@ import SwiftUI
 struct OptimizationValue {
     var defenderHealth: Double
     var sequence: [Troop]
-//    var attackerHPs: [Double]
 }
 
 struct CalcView: View {

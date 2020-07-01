@@ -24,7 +24,7 @@ struct TroopView: View {
                 Image(troop.imageURL)
                     .resizable()
                     .frame(width: self.troopWidth, height: self.troopWidth)
-                Slider(value: $userData.selectedTroops[troopIndex].hp, in: 0...userData.selectedTroops[troopIndex].maxHP)
+                Slider(value: $userData.selectedTroops[troopIndex].hp, in: 1...userData.selectedTroops[troopIndex].maxHP, step: 1)
                 Text(String(format: "%.0f", userData.selectedTroops[troopIndex].hp))
                 Image(systemName: "arrow.up.circle")
                     .resizable()
