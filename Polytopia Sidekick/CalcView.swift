@@ -23,26 +23,22 @@ struct CalcView: View {
 
     var body: some View {
         VStack {
-            List {
-                ForEach(rows, id: \.id) { row in
-                    HStack(alignment: .center) {
-                        ForEach(row.cells, id: \.id) { troop in
-                            VStack() {
-                                Image(troop.imageURL)
-                                    .resizable()
-                                    .frame(width: self.troopWidth, height: self.troopWidth)
-                                    .clipShape(Circle())
-                                    .overlay(
-                                        Circle().stroke(Color.white, lineWidth: 2))
-                                    .shadow(radius: 2)
-                                    .onTapGesture {
-                                        self.userData.selectedTroops.append(troop.copy())
-                                }
-                            }
+            ForEach(rows) { row in
+                HStack(alignment: .center) {
+                    ForEach(row.cells) { troop in
+                        Image(troop.imageURL)
+                            .resizable()
+                            .frame(width: self.troopWidth, height: self.troopWidth)
+                            .clipShape(Circle())
+                            .overlay(
+                                Circle().stroke(Color.white, lineWidth: 2))
+                            .shadow(radius: 2)
+                            .onTapGesture {
+                                self.userData.selectedTroops.append(troop.copy())
                         }
                     }
                 }
-            }.frame(height: troopWidth * 3.5, alignment: .top)
+            }
 
             if (isBeforeCalculating) {
                 Divider()
@@ -54,12 +50,11 @@ struct CalcView: View {
                 }
                 Divider()
                 Text(userData.selectedTroops.count == 1 ? "Choose Attackers" : userData.selectedTroops.count > 1 ? "Attackers" : "")
-                List {
+                ScrollView() {
                     if (userData.selectedTroops.count > 1) {
-                        ForEach(userData.selectedTroops.suffix(userData.selectedTroops.count - 1), id: \.id) { troop in
-                            VStack() {
-                                TroopView(troop: troop)
-                            }
+                        ForEach(userData.selectedTroops.suffix(userData.selectedTroops.count - 1)) { troop in
+                            TroopView(troop: troop)
+                                .padding()
                         }
                     }
                 }.frame(maxHeight: .infinity)
@@ -71,12 +66,11 @@ struct CalcView: View {
                     .frame(maxHeight: troopWidth * 1.2)
                 Divider()
                 Text("Optimal Attack Order")
-                List {
+                VStack() {
                     if (userData.optimalTroops.count > 0) {
-                        ForEach(userData.optimalTroops, id: \.id) { troop in
-                            VStack() {
-                                OptimalTroopView(troop: troop)
-                            }
+                        ForEach(userData.optimalTroops) { troop in
+                            OptimalTroopView(troop: troop)
+                            .padding()
                         }
                     }
                 }.frame(maxHeight: .infinity)

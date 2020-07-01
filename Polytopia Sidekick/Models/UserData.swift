@@ -14,7 +14,7 @@ final class UserData: ObservableObject {
     @Published var optimalTroops = [Troop]()
 
     func reset() {
-        selectedTroops = [Troop]()
-        optimalTroops = [Troop]()
+        selectedTroops.removeAll()
+        optimalTroops.removeAll()
     }
 }
