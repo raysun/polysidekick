@@ -33,8 +33,10 @@ class Calc {
             var returnedValues = [OptimizationValue]()
             for var troop in remaining {
                 let damageToDefender = round(4.5 * troop.attack * troop.scaledAttack/(troop.scaledAttack + defender.scaledDefense))
-                print("Troop: \(troop.imageURL), Defender: \(defender.imageURL), Damage to defender: \(damageToDefender)")
+                print("Troop: \(troop.imageURL), HP: \(troop.hp) Defender: \(defender.imageURL), Damage to defender: \(damageToDefender)")
                 let localDefenderHealth = max(0, defenderHealth - damageToDefender)
+                var defenderCopy = defender
+                defenderCopy.hp = localDefenderHealth
                 var localSequence = sequence
                 if (localDefenderHealth > 0) {
                     let damageToAttacker = round(4.5 * defender.defense * defender.scaledDefense/(defender.scaledDefense + troop.scaledAttack))
@@ -51,7 +53,7 @@ class Calc {
                     }
                     i += 1
                 }
-                returnedValues.append(optim(defender: defender, attackers: attackers, sequence: localSequence, remaining: localRemaining, defenderHealth: localDefenderHealth))
+                returnedValues.append(optim(defender: defenderCopy, attackers: attackers, sequence: localSequence, remaining: localRemaining, defenderHealth: localDefenderHealth))
             }
             returnedValues = returnedValues.sorted {
                 $0.defenderHealth < $1.defenderHealth
