@@ -66,7 +66,7 @@ struct CalcView: View {
                     .frame(maxHeight: troopWidth * 1.2)
                 Divider()
                 Text("Optimal Attack Order")
-                VStack() {
+                ScrollView() {
                     if (userData.optimalTroops.count > 0) {
                         ForEach(userData.optimalTroops) { troop in
                             OptimalTroopView(troop: troop)
