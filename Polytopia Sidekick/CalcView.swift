@@ -15,7 +15,8 @@ struct OptimizationValue {
 
 struct CalcView: View {
     @EnvironmentObject private var userData: UserData
-    @State var isShowingAttackers = true
+    @State var isBeforeCalculating = true
+    @State var defender: Troop? = nil
 
     let rows = Row.all()
     let troopWidth = CGFloat(70.0)
@@ -42,15 +43,15 @@ struct CalcView: View {
                     }
                 }
             }.frame(height: troopWidth * 3.5, alignment: .top)
-            Divider()
-            Text(userData.selectedTroops.count == 0 ? "Choose Defender" : "Defender")
-            if (userData.selectedTroops.count > 0) {
-                TroopView(troop: userData.selectedTroops.first!, isDefender: true)
-                    .padding()
-                    .frame(maxHeight: troopWidth * 1.2)
-            }
 
-            if (isShowingAttackers) {
+            if (isBeforeCalculating) {
+                Divider()
+                Text(userData.selectedTroops.count == 0 ? "Choose Defender" : "Defender")
+                if (userData.selectedTroops.count > 0) {
+                    TroopView(troop: userData.selectedTroops.first!, isDefender: true)
+                        .padding()
+                        .frame(maxHeight: troopWidth * 1.2)
+                }
                 Divider()
                 Text(userData.selectedTroops.count == 1 ? "Choose Attackers" : userData.selectedTroops.count > 1 ? "Attackers" : "")
                 List {
@@ -63,6 +64,11 @@ struct CalcView: View {
                     }
                 }.frame(maxHeight: .infinity)
             } else {
+                Divider()
+                Text("Defender")
+                OptimalTroopView(troop: defender!)
+                    .padding()
+                    .frame(maxHeight: troopWidth * 1.2)
                 Divider()
                 Text("Optimal Attack Order")
                 List {
@@ -81,10 +87,14 @@ struct CalcView: View {
                         let optim = Calc.calculate(troops: self.userData.selectedTroops)
                         print(optim)
                         self.userData.optimalTroops = optim.sequence
-                        self.isShowingAttackers = false
+                        var defender = self.userData.selectedTroops[0]
+                        defender.originalHP = defender.hp
+                        defender.hp = optim.defenderHealth
+                        self.defender = defender
+                        self.isBeforeCalculating = false
                     }
                     Button("Reset") {
-                        self.isShowingAttackers = true
+                        self.isBeforeCalculating = true
                         self.userData.reset()
                     }
                 }
