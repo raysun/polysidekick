@@ -53,6 +53,7 @@ struct CalcView: View {
                 // Defender
 
                 Text(userData.defenders.count == 0 ? "Choose Defender" : "Defender")
+                    .bold()
                 ForEach(0..<userData.defenders.count, id: \.self) { i in
                     TroopView(troop: self.$userData.defenders[i])
                         .padding()
@@ -62,6 +63,7 @@ struct CalcView: View {
                 // Attackers
 
                 Text(userData.defenders.count == 0 ? "" : userData.attackers.count == 0 ? "Choose Attackers" : "Attackers")
+                    .bold()
                 ScrollView() {
                         ForEach(0..<userData.attackers.count, id: \.self) { i in
                             TroopView(troop: self.$userData.attackers[i])
@@ -74,12 +76,12 @@ struct CalcView: View {
                 // Optimal Attack Results
 
                 Divider()
-                Text("Defender")
+                Text("Defender").bold()
                 OptimalTroopView(troop: self.defender!)
                     .padding()
                     .frame(maxHeight: troopWidth * 1.2)
                 Divider()
-                Text("Optimal Attack Order")
+                Text("Optimal Attack Order").bold()
                 ScrollView() {
                     if (userData.optimalTroops.count > 0) {
                         ForEach(userData.optimalTroops) { troop in
@@ -89,6 +91,9 @@ struct CalcView: View {
                     }
                 }.frame(maxHeight: .infinity)
             }
+
+            // Buttons
+
             if (userData.attackers.count > 0) {
                 HStack(alignment: .center, spacing: 25.0) {
                     Button("Calculate") {
