@@ -15,6 +15,7 @@ struct OptimizationValue {
 
 struct CalcView: View {
     @EnvironmentObject private var userData: UserData
+
     @State var isBeforeCalculating = true
     @State var defender: Troop? = nil
 
@@ -23,45 +24,58 @@ struct CalcView: View {
 
     var body: some View {
         VStack {
-            ForEach(rows) { row in
-                HStack(alignment: .center) {
-                    ForEach(row.cells) { troop in
-                        Image(troop.imageURL)
-                            .resizable()
-                            .frame(width: self.troopWidth, height: self.troopWidth)
-                            .clipShape(Circle())
-                            .overlay(
-                                Circle().stroke(Color.white, lineWidth: 2))
-                            .shadow(radius: 2)
-                            .onTapGesture {
-                                self.userData.selectedTroops.append(troop.copy())
+            if (isBeforeCalculating) {
+
+                // Troop Picker
+
+                ForEach(rows) { row in
+                    HStack(alignment: .center) {
+                        ForEach(row.cells) { troop in
+                            Image(troop.imageURL)
+                                .resizable()
+                                .frame(width: self.troopWidth, height: self.troopWidth)
+                                .clipShape(Circle())
+                                .overlay(
+                                    Circle().stroke(Color.white, lineWidth: 2))
+                                .shadow(radius: 2)
+                                .onTapGesture {
+                                    if self.userData.defenders.count == 0 {
+                                        self.userData.defenders.append(troop.copy())
+                                    } else {
+                                        self.userData.attackers.append(troop.copy())
+                                    }
+                            }
                         }
                     }
                 }
-            }
-
-            if (isBeforeCalculating) {
                 Divider()
-                Text(userData.selectedTroops.count == 0 ? "Choose Defender" : "Defender")
-                if (userData.selectedTroops.count > 0) {
-                    TroopView(troop: userData.selectedTroops.first!, isDefender: true)
+
+                // Defender
+
+                Text(userData.defenders.count == 0 ? "Choose Defender" : "Defender")
+                ForEach(0..<userData.defenders.count, id: \.self) { i in
+                    TroopView(troop: self.$userData.defenders[i])
                         .padding()
-                        .frame(maxHeight: troopWidth * 1.2)
                 }
                 Divider()
-                Text(userData.selectedTroops.count == 1 ? "Choose Attackers" : userData.selectedTroops.count > 1 ? "Attackers" : "")
+
+                // Attackers
+
+                Text(userData.defenders.count == 0 ? "" : userData.attackers.count == 0 ? "Choose Attackers" : "Attackers")
                 ScrollView() {
-                    if (userData.selectedTroops.count > 1) {
-                        ForEach(userData.selectedTroops.suffix(userData.selectedTroops.count - 1)) { troop in
-                            TroopView(troop: troop)
+                        ForEach(0..<userData.attackers.count, id: \.self) { i in
+                            TroopView(troop: self.$userData.attackers[i])
                                 .padding()
                         }
-                    }
                 }.frame(maxHeight: .infinity)
+
             } else {
+
+                // Optimal Attack Results
+
                 Divider()
                 Text("Defender")
-                OptimalTroopView(troop: defender!)
+                OptimalTroopView(troop: self.defender!)
                     .padding()
                     .frame(maxHeight: troopWidth * 1.2)
                 Divider()
@@ -75,13 +89,13 @@ struct CalcView: View {
                     }
                 }.frame(maxHeight: .infinity)
             }
-            if (userData.selectedTroops.count > 0) {
+            if (userData.attackers.count > 0) {
                 HStack(alignment: .center, spacing: 25.0) {
                     Button("Calculate") {
-                        let optim = Calc.calculate(troops: self.userData.selectedTroops)
+                        let optim = Calc.calculate(defender: self.userData.defenders.first!, attackers: self.userData.attackers)
                         print(optim)
                         self.userData.optimalTroops = optim.sequence
-                        var defender = self.userData.selectedTroops[0]
+                        var defender = self.userData.attackers[0]
                         defender.originalHP = defender.hp
                         defender.hp = optim.defenderHealth
                         self.defender = defender
@@ -100,6 +114,6 @@ struct CalcView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        CalcView()
+        CalcView().environmentObject(UserData())
     }
 }

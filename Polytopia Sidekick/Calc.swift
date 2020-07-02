@@ -14,16 +14,15 @@ private func sumHealth(_ x: Double, _ y: Troop) -> Double {
 }
 
 class Calc {
-    static func calculate(troops: [Troop]) -> OptimizationValue {
-        var tmpTroops = [Troop]()
-        for var troop in troops {
+    static func calculate(defender: Troop, attackers: [Troop]) -> OptimizationValue {
+        var tmpDefender = defender
+        tmpDefender.originalHP = defender.hp
+        var tmpAttackers = [Troop]()
+        for var troop in attackers {
             troop.originalHP = troop.hp
-            tmpTroops.append(troop)
+            tmpAttackers.append(troop)
         }
-        let defender = tmpTroops[0]
-        var attackers = tmpTroops
-        attackers.remove(at: 0)
-        return optim(defender: defender, attackers: attackers, sequence: [], remaining: attackers, defenderHealth: defender.hp)
+        return optim(defender: tmpDefender, attackers: tmpAttackers, sequence: [], remaining: tmpAttackers, defenderHealth: defender.hp)
     }
 
     private static func optim(defender: Troop, attackers: [Troop], sequence: [Troop], remaining: [Troop], defenderHealth: Double) -> OptimizationValue {

@@ -10,11 +10,13 @@ import Combine
 import SwiftUI
 
 final class UserData: ObservableObject {
-    @Published var selectedTroops = [Troop]()
+    @Published var defenders = [Troop]()
+    @Published var attackers = [Troop]()
     @Published var optimalTroops = [Troop]()
 
     func reset() {
-        selectedTroops.removeAll()
+        defenders.removeAll()
+        attackers.removeAll()
         optimalTroops.removeAll()
     }
 }

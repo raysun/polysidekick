@@ -12,36 +12,37 @@ import SwiftUI
 struct TroopView: View {
     @EnvironmentObject private var userData: UserData
 
-    let troop: Troop
-    var troopIndex: Int { userData.selectedTroops.firstIndex(where: { $0.id == troop.id }) ?? -1 }
+    @Binding var troop: Troop
+//    var troopIndex: Int { userData.selectedTroops.firstIndex(where: { $0.id == troop.id }) ?? -1 }
 
     let troopWidth = CGFloat(60.0)
     var isDefender = false
 
     var body: some View {
         HStack() {
-            if (troopIndex != -1) {
+//            if (troopIndex != -1) {
                 Image(troop.imageURL)
                     .resizable()
                     .frame(width: self.troopWidth, height: self.troopWidth)
-                Slider(value: $userData.selectedTroops[troopIndex].hp, in: 1...userData.selectedTroops[troopIndex].maxHP, step: 1)
-                Text(String(format: "%.0f", userData.selectedTroops[troopIndex].hp))
+//                Slider(value: $userData.selectedTroops[troopIndex].hp, in: 1...userData.selectedTroops[troopIndex].maxHP, step: 1)
+                Slider(value: $troop.hp, in: 1...troop.maxHP, step: 1)
+                Text(String(format: "%.0f", troop.hp))
                 Image(systemName: "arrow.up.circle")
                     .resizable()
                     .frame(width: 22, height: 22)
-                    .opacity(userData.selectedTroops[self.troopIndex].isUpgraded || troop.imageURL == "Giant" ? 0 : 1)
+                    .opacity(troop.isUpgraded || troop.imageURL == "Giant" ? 0 : 1)
                     .onTapGesture {
-                        self.userData.selectedTroops[self.troopIndex].hp += 5
-                        self.userData.selectedTroops[self.troopIndex].maxHP += 5
-                        self.userData.selectedTroops[self.troopIndex].isUpgraded = true
+                        self.troop.hp += 5
+                        self.troop.maxHP += 5
+                        self.troop.isUpgraded = true
                 }
                 if (isDefender) {
                     ZStack {
-                        Image(systemName: self.userData.selectedTroops[self.troopIndex].isDefended ? "shield" : "shield.slash")
+                        Image(systemName: self.troop.isDefended ? "shield" : "shield.slash")
                             .resizable()
-                            .opacity(self.userData.selectedTroops[self.troopIndex].isDefended ? 1.0 : 0.5)
+                            .opacity(self.troop.isDefended ? 1.0 : 0.5)
                             .frame(width: 22, height: 22)
-                        if (self.userData.selectedTroops[self.troopIndex].isWalled) {
+                        if (self.troop.isWalled) {
                             Image(systemName: "shield")
                             .resizable()
                             .frame(width: 30, height: 30)
@@ -49,17 +50,17 @@ struct TroopView: View {
 
                     }
                     .onTapGesture {
-                        if !self.userData.selectedTroops[self.troopIndex].isDefended {
-                            self.userData.selectedTroops[self.troopIndex].isDefended = true
-                        } else if !self.userData.selectedTroops[self.troopIndex].isWalled {
-                            self.userData.selectedTroops[self.troopIndex].isWalled = true
+                        if !self.troop.isDefended {
+                            self.troop.isDefended = true
+                        } else if !self.troop.isWalled {
+                            self.troop.isWalled = true
                         } else {
-                            self.userData.selectedTroops[self.troopIndex].isDefended = false
-                            self.userData.selectedTroops[self.troopIndex].isWalled = false
+                            self.troop.isDefended = false
+                            self.troop.isWalled = false
                         }
                     }
                 }
             }
         }
-    }
+//    }
 }
