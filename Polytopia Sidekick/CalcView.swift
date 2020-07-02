@@ -23,22 +23,24 @@ struct CalcView: View {
     let troopWidth = CGFloat(70.0)
     
     var TroopPicker: some View {
-        ForEach(rows) { row in
-            HStack(alignment: .center) {
-                ForEach(row.cells) { troop in
-                    Image(troop.imageURL)
-                        .resizable()
-                        .frame(width: self.troopWidth, height: self.troopWidth)
-                        .clipShape(Circle())
-                        .overlay(
-                            Circle().stroke(Color.white, lineWidth: 2))
-                        .shadow(radius: 2)
-                        .onTapGesture {
-                            if self.userData.defenders.count == 0 {
-                                self.userData.defenders.append(troop.copy())
-                            } else {
-                                self.userData.attackers.append(troop.copy())
-                            }
+        VStack {
+            ForEach(rows) { row in
+                HStack(alignment: .center) {
+                    ForEach(row.cells) { troop in
+                        Image(troop.imageURL)
+                            .resizable()
+                            .frame(width: self.troopWidth, height: self.troopWidth)
+                            .clipShape(Circle())
+                            .overlay(
+                                Circle().stroke(Color.white, lineWidth: 2))
+                            .shadow(radius: 2)
+                            .onTapGesture {
+                                if self.userData.defenders.count == 0 {
+                                    self.userData.defenders.append(troop.copy())
+                                } else {
+                                    self.userData.attackers.append(troop.copy())
+                                }
+                        }
                     }
                 }
             }
@@ -46,6 +48,7 @@ struct CalcView: View {
     }
     var Defender: some View {
         VStack {
+            Divider()
             Text(userData.defenders.count == 0 ? "Choose Defender" : "Defender")
                 .bold()
             ForEach(0..<userData.defenders.count, id: \.self) { i in
@@ -56,67 +59,67 @@ struct CalcView: View {
     }
     var Attackers: some View {
         VStack {
-            Text(userData.defenders.count == 0 ? "" : userData.attackers.count == 0 ? "Choose Attackers" : "Attackers")
-                .bold()
-            ScrollView() {
-                ForEach(0..<userData.attackers.count, id: \.self) { i in
-                    TroopView(troop: self.$userData.attackers[i])
-                        .padding([.leading, .trailing])
+            if (userData.defenders.count != 0) {
+                Divider()
+                Text(userData.attackers.count == 0 ? "Choose Attackers" : "Attackers")
+                    .bold()
+                ScrollView() {
+                    ForEach(0..<userData.attackers.count, id: \.self) { i in
+                        TroopView(troop: self.$userData.attackers[i])
+                            .padding([.leading, .trailing])
+                    }
                 }
-            }.frame(maxHeight: .infinity)
-        }
+            }
+        }.frame(maxHeight: .infinity)
     }
     var BestAttacks: some View {
         VStack {
             Text("Defender").bold()
             OptimalTroopView(troop: self.defender!)
-                .padding()
-                .frame(maxHeight: troopWidth * 1.2)
             Divider()
             Text("Optimal Attack Order").bold()
             ScrollView() {
                 ForEach(userData.optimalTroops) { troop in
                     OptimalTroopView(troop: troop)
-                        .padding()
                 }
             }.frame(maxHeight: .infinity)
         }
     }
     var Buttons: some View {
-        VStack {
-            if (userData.attackers.count > 0) {
-                HStack(alignment: .center, spacing: 25.0) {
-                    Button("Calculate") {
-                        let optim = Calc.calculate(defender: self.userData.defenders.first!, attackers: self.userData.attackers)
-                        print(optim)
-                        self.userData.optimalTroops = optim.sequence
-                        var defender = self.userData.attackers[0]
-                        defender.originalHP = defender.hp
-                        defender.hp = optim.defenderHealth
-                        self.defender = defender
-                        self.isBeforeCalculating = false
-                    }
-                    Button("Reset") {
-                        self.isBeforeCalculating = true
-                        self.userData.reset()
-                    }
-                }
+        HStack(alignment: .center, spacing: 25.0) {
+            Button("Calculate") {
+                let optim = Calc.calculate(defender: self.userData.defenders.first!, attackers: self.userData.attackers)
+                print(optim)
+                self.userData.optimalTroops = optim.sequence
+                var defender = self.userData.defenders[0]
+                defender.originalHP = defender.hp
+                defender.hp = optim.defenderHealth
+                self.defender = defender
+                self.isBeforeCalculating = false
+            }
+            Button("Reset") {
+                self.isBeforeCalculating = true
+                self.userData.reset()
             }
         }
     }
     
     var body: some View {
-        VStack {
-            if (isBeforeCalculating) {
-                TroopPicker
-                Divider()
-                Defender
-                Divider()
-                Attackers
-            } else {
-                BestAttacks
+        NavigationView {
+            VStack {
+                if (isBeforeCalculating) {
+                    TroopPicker
+                        .padding()
+                    Defender
+                    Attackers
+                } else {
+                    BestAttacks
+                }
+                if (userData.defenders.count > 0) {
+                    Buttons
+                }
             }
-            Buttons
+            .navigationBarTitle("Attack Optimizer")
         }
         .animation(.easeInOut)
     }
