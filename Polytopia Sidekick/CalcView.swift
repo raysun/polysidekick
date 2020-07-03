@@ -13,10 +13,15 @@ struct OptimizationValue {
     var sequence: [Troop]
 }
 
+enum CalcViewState {
+    case input
+    case output
+}
+
 struct CalcView: View {
     @EnvironmentObject private var userData: UserData
     
-    @State var isBeforeCalculating = true
+    @State var viewState: CalcViewState = .input
     @State var defender: Troop? = nil
     
     let rows = Row.all()
@@ -97,11 +102,11 @@ struct CalcView: View {
                 defender.originalHP = defender.hp
                 defender.hp = optim.defenderHealth
                 self.defender = defender
-                self.isBeforeCalculating = false
+                self.viewState = .output
             }
             Button("Reset") {
-                self.isBeforeCalculating = true
-                self.userData.reset()
+                    self.userData.reset()
+                    self.viewState = .input
             }
         }
     }
@@ -109,12 +114,12 @@ struct CalcView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if (isBeforeCalculating) {
+                if (viewState == .input) {
                     TroopPicker
                         .padding()
                     Defender
                     Attackers
-                } else {
+                } else if (viewState == .output) {
                     BestAttacks
                 }
                 if (userData.defenders.count > 0) {
