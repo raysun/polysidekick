@@ -28,23 +28,25 @@ struct CalcView: View {
     let troopWidth = CGFloat(70.0)
     
     var TroopPicker: some View {
-        VStack {
-            ForEach(rows) { row in
-                HStack(alignment: .center) {
-                    ForEach(row.cells) { troop in
-                        Image(troop.imageURL)
-                            .resizable()
-                            .frame(width: self.troopWidth, height: self.troopWidth)
-                            .clipShape(Circle())
-                            .overlay(
-                                Circle().stroke(Color.white, lineWidth: 2))
-                            .shadow(radius: 2)
-                            .onTapGesture {
-                                if self.userData.defenders.count == 0 {
-                                    self.userData.defenders.append(troop.copy())
-                                } else {
-                                    self.userData.attackers.append(troop.copy())
-                                }
+        ScrollView(.horizontal) {
+            VStack {
+                ForEach(rows) { row in
+                    HStack(alignment: .center) {
+                        ForEach(row.cells) { troop in
+                            Image(troop.imageURL)
+                                .resizable()
+                                .frame(width: self.troopWidth, height: self.troopWidth)
+//                                .clipShape(Circle())
+//                                .overlay(
+//                                    Circle().stroke(Color.white, lineWidth: 2))
+//                                .shadow(radius: 2)
+                                .onTapGesture {
+                                    if self.userData.defenders.count == 0 {
+                                        self.userData.defenders.append(troop.copy())
+                                    } else {
+                                        self.userData.attackers.append(troop.copy())
+                                    }
+                            }
                         }
                     }
                 }
@@ -124,7 +126,7 @@ struct CalcView: View {
                     Buttons
                 }
             }
-            .navigationBarTitle("Attack Optimizer")
+            .navigationBarTitle("Yadakkvisor")
         }
         .animation(.easeInOut)
     }
