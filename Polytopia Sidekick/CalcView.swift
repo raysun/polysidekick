@@ -18,6 +18,19 @@ enum CalcViewState {
     case output
 }
 
+struct PolyFont: ViewModifier {
+    var size: CGFloat
+    func body(content: Content) -> some View {
+        content
+            .font(.custom("PoiretOne-Regular", size: size))
+    }
+}
+extension View {
+    func polyFont(size: CGFloat) -> some View {
+        return self.modifier(PolyFont(size: size))
+    }
+}
+
 struct CalcView: View {
     @EnvironmentObject private var userData: UserData
     
@@ -28,7 +41,7 @@ struct CalcView: View {
     let troopWidth = CGFloat(70.0)
     
     var TroopPicker: some View {
-        ScrollView(.horizontal) {
+        ScrollView(.vertical) {
             VStack {
                 ForEach(rows) { row in
                     HStack(alignment: .center) {
@@ -36,10 +49,10 @@ struct CalcView: View {
                             Image(troop.imageURL)
                                 .resizable()
                                 .frame(width: self.troopWidth, height: self.troopWidth)
-//                                .clipShape(Circle())
-//                                .overlay(
-//                                    Circle().stroke(Color.white, lineWidth: 2))
-//                                .shadow(radius: 2)
+                                //                                .clipShape(Circle())
+                                //                                .overlay(
+                                //                                    Circle().stroke(Color.white, lineWidth: 2))
+                                //                                .shadow(radius: 2)
                                 .onTapGesture {
                                     if self.userData.defenders.count == 0 {
                                         self.userData.defenders.append(troop.copy())
@@ -51,13 +64,13 @@ struct CalcView: View {
                     }
                 }
             }
-        }
+        }.frame(maxHeight: troopWidth * 3.5)
     }
     var Defender: some View {
         VStack {
             Divider()
             Text(userData.defenders.count == 0 ? "Choose Defender" : "Defender")
-                .bold()
+                .polyFont(size: 20)
             ForEach(0..<userData.defenders.count, id: \.self) { i in
                 TroopView(troop: self.$userData.defenders[i], isDefender: true)
                     .padding()
@@ -69,7 +82,7 @@ struct CalcView: View {
             if (userData.defenders.count != 0) {
                 Divider()
                 Text(userData.attackers.count == 0 ? "Choose Attackers" : "Attackers")
-                    .bold()
+                    .polyFont(size: 20)
                 ScrollView() {
                     ForEach(0..<userData.attackers.count, id: \.self) { i in
                         TroopView(troop: self.$userData.attackers[i])
@@ -81,10 +94,12 @@ struct CalcView: View {
     }
     var BestAttacks: some View {
         VStack {
-            Text("Defender").bold()
+            Text("Defender")
+                .polyFont(size: 20)
             OptimalTroopView(troop: self.defender!)
             Divider()
-            Text("Optimal Attack Order").bold()
+            Text("Optimal Attack Order")
+                .polyFont(size: 20)
             ScrollView() {
                 ForEach(userData.optimalTroops) { troop in
                     OptimalTroopView(troop: troop)
@@ -110,23 +125,23 @@ struct CalcView: View {
             }
         }
     }
-    
+
     var body: some View {
-        NavigationView {
-            VStack {
-                if (viewState == .input) {
-                    TroopPicker
-                        .padding()
-                    Defender
-                    Attackers
-                } else if (viewState == .output) {
-                    BestAttacks
-                }
-                if (userData.defenders.count > 0) {
-                    Buttons
-                }
+        VStack {
+            Text("Yadakkvisor")
+                .polyFont(size: 28)
+            Divider()
+            if (viewState == .input) {
+                TroopPicker
+//                    .padding()
+                Defender
+                Attackers
+            } else if (viewState == .output) {
+                BestAttacks
             }
-            .navigationBarTitle("Yadakkvisor")
+            if (userData.defenders.count > 0) {
+                Buttons
+            }
         }
         .animation(.easeInOut)
     }

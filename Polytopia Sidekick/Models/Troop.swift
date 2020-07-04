@@ -24,8 +24,7 @@ extension Row {
                 Troop(imageURL: "Catapult", maxHP: 15, attack: 4, defense: 0),
             ]),
             Row(cells: [
-                Troop(imageURL: "Defender", maxHP: 15, attack: 1, defense: 3),
-                
+                Troop(imageURL: "Defender", maxHP: 15, attack: 1, defense: 3),                
                 Troop(imageURL: "Archer", maxHP: 10, attack: 2, defense: 1),
                 Troop(imageURL: "Swordsman", maxHP: 15, attack: 3, defense: 3),
             ]),
@@ -33,7 +32,24 @@ extension Row {
                 Troop(imageURL: "Boat", maxHP: 10, attack: 1, defense: 1),
                 Troop(imageURL: "Ship", maxHP: 15, attack: 2, defense: 2),
                 Troop(imageURL: "Battleship", maxHP: 40, attack: 4, defense: 3),
-            ])
+            ]),
+            Row(cells: [
+                Troop(imageURL: "Battle Sled", maxHP: 10, attack: 1, defense: 1),
+                Troop(imageURL: "Ice Archer", maxHP: 15, attack: 2, defense: 2),
+                Troop(imageURL: "Ice Fortress", maxHP: 40, attack: 4, defense: 3),
+                Troop(imageURL: "Gaami", maxHP: 40, attack: 4, defense: 3),
+            ]),
+            Row(cells: [
+                Troop(imageURL: "Polytaur", maxHP: 40, attack: 4, defense: 3),
+                Troop(imageURL: "Baby Dragon", maxHP: 10, attack: 1, defense: 1),
+                Troop(imageURL: "Fire Dragon", maxHP: 15, attack: 2, defense: 2),
+                Troop(imageURL: "Navalon", maxHP: 40, attack: 4, defense: 3),
+            ]),
+            Row(cells: [
+                Troop(imageURL: "Amphibian", maxHP: 10, attack: 1, defense: 1),
+                Troop(imageURL: "Tridention", maxHP: 15, attack: 2, defense: 2),
+                Troop(imageURL: "Crab", maxHP: 40, attack: 4, defense: 3),
+            ]),
         ]
     }
 }

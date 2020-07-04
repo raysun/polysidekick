@@ -16,6 +16,7 @@
 		233E39A924A968ED002A931F /* Polytopia_SidekickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233E39A824A968ED002A931F /* Polytopia_SidekickTests.swift */; };
 		233E39B424A968EE002A931F /* Polytopia_SidekickUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233E39B324A968EE002A931F /* Polytopia_SidekickUITests.swift */; };
 		233E39C224A96A72002A931F /* Troop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 233E39C124A96A72002A931F /* Troop.swift */; };
+		B645CDC324B14A29002F92D0 /* PoiretOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B645CDC124B149AD002F92D0 /* PoiretOne-Regular.ttf */; };
 		B6A3BCE324ABA28F00E5719D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A3BCE224ABA28F00E5719D /* UserData.swift */; };
 		B6A3BCE624ABB38A00E5719D /* Calc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A3BCE524ABB38A00E5719D /* Calc.swift */; };
 		B6A3BCE824ABB44500E5719D /* TroopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A3BCE724ABB44500E5719D /* TroopView.swift */; };
@@ -55,6 +56,7 @@
 		233E39B324A968EE002A931F /* Polytopia_SidekickUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Polytopia_SidekickUITests.swift; sourceTree = "<group>"; };
 		233E39B524A968EE002A931F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		233E39C124A96A72002A931F /* Troop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Troop.swift; sourceTree = "<group>"; };
+		B645CDC124B149AD002F92D0 /* PoiretOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PoiretOne-Regular.ttf"; sourceTree = "<group>"; };
 		B6A3BCE224ABA28F00E5719D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		B6A3BCE524ABB38A00E5719D /* Calc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calc.swift; sourceTree = "<group>"; };
 		B6A3BCE724ABB44500E5719D /* TroopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroopView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				233E399724A968ED002A931F /* Assets.xcassets */,
 				233E399C24A968ED002A931F /* LaunchScreen.storyboard */,
 				233E399F24A968ED002A931F /* Info.plist */,
+				B645CDC224B14A05002F92D0 /* Fonts */,
 				233E399924A968ED002A931F /* Preview Content */,
 				B6A3BCE924ABC19500E5719D /* OptimalTroopView.swift */,
 			);
@@ -148,6 +151,14 @@
 				233E39B524A968EE002A931F /* Info.plist */,
 			);
 			path = "Polytopia SidekickUITests";
+			sourceTree = "<group>";
+		};
+		B645CDC224B14A05002F92D0 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				B645CDC124B149AD002F92D0 /* PoiretOne-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		B6A3BCE424ABA2A700E5719D /* Models */ = {
@@ -264,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				233E399E24A968ED002A931F /* LaunchScreen.storyboard in Resources */,
+				B645CDC324B14A29002F92D0 /* PoiretOne-Regular.ttf in Resources */,
 				233E399B24A968ED002A931F /* Preview Assets.xcassets in Resources */,
 				233E399824A968ED002A931F /* Assets.xcassets in Resources */,
 			);
