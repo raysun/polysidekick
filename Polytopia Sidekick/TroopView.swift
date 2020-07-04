@@ -10,10 +10,7 @@ import Foundation
 import SwiftUI
 
 struct TroopView: View {
-//    @EnvironmentObject private var userData: UserData
-
     @Binding var troop: Troop
-    //    var troopIndex: Int { userData.selectedTroops.firstIndex(where: { $0.id == troop.id }) ?? -1 }
 
     let troopWidth = CGFloat(60.0)
     var isDefender = false
@@ -23,17 +20,14 @@ struct TroopView: View {
             Image(troop.imageURL)
                 .resizable()
                 .frame(width: self.troopWidth, height: self.troopWidth)
-            //                Slider(value: $userData.selectedTroops[troopIndex].hp, in: 1...userData.selectedTroops[troopIndex].maxHP, step: 1)
             Slider(value: $troop.hp, in: 1...troop.maxHP, step: 1)
             Text(String(format: "%.0f", troop.hp))
             Image(systemName: "arrow.up.circle")
                 .resizable()
                 .frame(width: 22, height: 22)
-                .opacity(troop.isUpgraded || troop.imageURL == "Giant" ? 0 : 1)
+                .opacity((troop.isUpgraded || !troop.isUpgradable) ? 0 : 1)
                 .onTapGesture {
-                    self.troop.hp += 5
-                    self.troop.maxHP += 5
-                    self.troop.isUpgraded = true
+                    self.troop.upgrade()
             }
             if (isDefender) {
                 ZStack {
@@ -46,7 +40,6 @@ struct TroopView: View {
                             .resizable()
                             .frame(width: 30, height: 30)
                     }
-
                 }
                 .onTapGesture {
                     if !self.troop.isDefended {

@@ -57,6 +57,18 @@ struct Troop: Identifiable {
         defense * hp / maxHP * (isWalled ? 4.0 : isDefended ? 1.5 : 1.0)
     }
 
+    var isUpgradable: Bool {
+        return !["Giant", "Battleship"].contains(imageURL)
+    }
+
+    mutating func upgrade() {
+        if (hp == maxHP) {
+            hp += 5
+        }
+        maxHP += 5
+        isUpgraded = true
+    }
+
     init(imageURL: String, maxHP: Double, attack: Double, defense: Double) {
         self.imageURL = imageURL
         self.maxHP = maxHP

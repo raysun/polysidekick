@@ -103,8 +103,8 @@ struct CalcView: View {
                 self.viewState = .output
             }
             Button("Reset") {
-                    self.userData.reset()
-                    self.viewState = .input
+                self.userData.reset()
+                self.viewState = .input
             }
         }
     }
