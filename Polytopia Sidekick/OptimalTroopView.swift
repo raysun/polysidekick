@@ -18,6 +18,11 @@ struct OptimalTroopView: View {
             Image(troop.imageURL)
                 .resizable()
                 .frame(width: self.troopWidth, height: self.troopWidth)
+            if troop.shipType != "" {
+                Image(troop.shipType)
+                .resizable()
+                .frame(width: self.troopWidth, height: self.troopWidth)
+            }
             Text(String(format: "%.0f", troop.originalHP) + " → " + String(format: "%.0f", troop.hp))
         }
     }

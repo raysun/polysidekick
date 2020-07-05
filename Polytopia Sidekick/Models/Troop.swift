@@ -11,6 +11,7 @@ import SwiftUI
 struct Row: Identifiable {
     let id = UUID()
     let cells: [Troop]
+    let isShipRow = false
 }
 
 extension Row {
@@ -29,9 +30,9 @@ extension Row {
                 Troop(imageURL: "Swordsman", maxHP: 15, attack: 3, defense: 3),
             ]),
             Row(cells: [
-                Troop(imageURL: "Boat", maxHP: 10, attack: 1, defense: 1),
-                Troop(imageURL: "Ship", maxHP: 15, attack: 2, defense: 2),
-                Troop(imageURL: "Battleship", maxHP: 40, attack: 4, defense: 3),
+                Troop(imageURL: "Boat", maxHP: 10, attack: 1, defense: 1, isShip: true),
+                Troop(imageURL: "Ship", maxHP: 15, attack: 2, defense: 2, isShip: true),
+                Troop(imageURL: "Battleship", maxHP: 40, attack: 4, defense: 3, isShip: true),
             ]),
             Row(cells: [
                 Troop(imageURL: "Battle Sled", maxHP: 10, attack: 1, defense: 1),
@@ -59,25 +60,27 @@ struct Troop: Identifiable {
     let imageURL: String
     var maxHP: Double
     var hp: Double
-    let attack: Double
-    let defense: Double
-
+    var attack: Double
+    var defense: Double
+    var isShip = false
+    
     var isWalled = false
     var isDefended = false
     var isUpgraded = false
     var originalHP = 0.0    // Used later to cache the starting HP before simulation
-
+    var shipType = ""
+    
     var scaledAttack: Double {
         attack * hp / maxHP
     }
     var scaledDefense: Double {
         defense * hp / maxHP * (isWalled ? 4.0 : isDefended ? 1.5 : 1.0)
     }
-
+    
     var isUpgradable: Bool {
         return !["Giant", "Battleship"].contains(imageURL)
     }
-
+    
     mutating func upgrade() {
         if (hp == maxHP) {
             hp += 5
@@ -85,18 +88,34 @@ struct Troop: Identifiable {
         maxHP += 5
         isUpgraded = true
     }
-
-    init(imageURL: String, maxHP: Double, attack: Double, defense: Double) {
+    
+    init(imageURL: String, maxHP: Double, attack: Double, defense: Double, isShip: Bool = false) {
         self.imageURL = imageURL
         self.maxHP = maxHP
         self.attack = attack
         self.defense = defense
         self.hp = maxHP
+        self.isShip = isShip
     }
-
-    func copy() -> Troop {
+    
+    mutating func inShip(ship: Troop? = nil) -> Troop {
         var copy = self
         copy.id = UUID()
+        if (ship != nil) {
+            copy.isShip = true
+            copy.shipType = ship?.imageURL ?? ""
+            switch(copy.shipType) {
+            case "Boat":
+                copy.attack = 1
+                copy.defense = 1
+            case "Ship":
+                copy.attack = 2
+                copy.defense = 2
+            default:
+                copy.attack = 4
+                copy.defense = 3
+            }
+        }
         return copy
     }
 }

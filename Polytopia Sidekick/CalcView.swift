@@ -18,6 +18,11 @@ enum CalcViewState {
     case output
 }
 
+enum TroopPickerState {
+    case normal
+    case secondPick
+}
+
 struct PolyFont: ViewModifier {
     var size: CGFloat
     func body(content: Content) -> some View {
@@ -37,27 +42,29 @@ struct CalcView: View {
     @State var viewState: CalcViewState = .input
     @State var defender: Troop? = nil
     
-    let rows = Row.all()
     let troopSize = CGFloat(70.0)
     
     var TroopPicker: some View {
         ScrollView(.vertical) {
             VStack {
-                ForEach(rows) { row in
+                ForEach(Row.all()) { row in
                     HStack(alignment: .center) {
                         ForEach(row.cells) { troop in
                             Image(troop.imageURL)
                                 .resizable()
-                                .frame(width: self.troopSize, height: self.troopSize)
-                                //                                .clipShape(Circle())
-                                //                                .overlay(
-                                //                                    Circle().stroke(Color.white, lineWidth: 2))
-                                //                                .shadow(radius: 2)
+                                .frame(width: self.troopSize, height: (self.userData.previousShip != nil && troop.isShip) ? 0.0 : self.troopSize)
                                 .onTapGesture {
-                                    if self.userData.defenders.count == 0 {
-                                        self.userData.defenders.append(troop.copy())
+                                    if (troop.isShip) {
+                                        self.userData.previousShip = troop
                                     } else {
-                                        self.userData.attackers.append(troop.copy())
+                                        var troopCopy = troop
+                                        troopCopy = troopCopy.inShip(ship: self.userData.previousShip)
+                                        if self.userData.defenders.count == 0 {
+                                            self.userData.defenders.append(troopCopy)
+                                        } else {
+                                            self.userData.attackers.append(troopCopy)
+                                        }
+                                        self.userData.previousShip = nil
                                     }
                             }
                         }
@@ -71,7 +78,7 @@ struct CalcView: View {
     var Defender: some View {
         VStack {
             Divider()
-            Text(userData.defenders.count == 0 ? "Choose Defender" : "Defender")
+            Text(userData.defenders.count == 0 ? "Choose Opponent" : "Opponent")
                 .polyFont(size: 20)
             ForEach(0..<userData.defenders.count, id: \.self) { i in
                 TroopView(troop: self.$userData.defenders[i], isDefender: true)
@@ -98,7 +105,7 @@ struct CalcView: View {
     
     var BestAttacks: some View {
         VStack {
-            Text("Defender")
+            Text("Opponent")
                 .polyFont(size: 20)
             OptimalTroopView(troop: self.defender!)
             Divider()

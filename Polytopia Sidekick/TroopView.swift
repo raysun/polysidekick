@@ -20,6 +20,11 @@ struct TroopView: View {
             Image(troop.imageURL)
                 .resizable()
                 .frame(width: self.troopWidth, height: self.troopWidth)
+            if troop.shipType != "" {
+                Image(troop.shipType)
+                .resizable()
+                .frame(width: self.troopWidth, height: self.troopWidth)
+            }
             Slider(value: $troop.hp, in: 1...troop.maxHP, step: 1)
             Text(String(format: "%.0f", troop.hp))
             Image(systemName: "arrow.up.circle")
