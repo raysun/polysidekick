@@ -41,9 +41,20 @@ struct CalcView: View {
     
     @State var viewState: CalcViewState = .input
     @State var defender: Troop? = nil
-    
+    @State var isShowingPopover = false
+
     let troopSize = CGFloat(70.0)
-    
+
+    private func selectTroop(_ troop: Troop) {
+        var troopCopy = troop
+        troopCopy = troopCopy.inShip(ship: self.userData.previousShip)
+        if self.userData.defenders.count == 0 {
+            self.userData.defenders.append(troopCopy)
+        } else {
+            self.userData.attackers.append(troopCopy)
+        }
+    }
+
     var TroopPicker: some View {
         ScrollView(.vertical) {
             VStack {
@@ -52,20 +63,36 @@ struct CalcView: View {
                         ForEach(row.cells) { troop in
                             Image(troop.imageURL)
                                 .resizable()
-                                .frame(width: self.troopSize, height: (self.userData.previousShip != nil && troop.isShip) ? 0.0 : self.troopSize)
+                                .frame(width: self.troopSize, height: self.troopSize)
                                 .onTapGesture {
                                     if (troop.isShip) {
                                         self.userData.previousShip = troop
+                                        self.isShowingPopover = true
                                     } else {
-                                        var troopCopy = troop
-                                        troopCopy = troopCopy.inShip(ship: self.userData.previousShip)
-                                        if self.userData.defenders.count == 0 {
-                                            self.userData.defenders.append(troopCopy)
-                                        } else {
-                                            self.userData.attackers.append(troopCopy)
-                                        }
+                                        self.selectTroop(troop)
                                         self.userData.previousShip = nil
                                     }
+                            }.sheet(isPresented: self.$isShowingPopover) {
+                                Text("Select Troop in \(self.userData.previousShip?.imageURL ?? "")")
+                                    .polyFont(size: 24)
+                                VStack {
+                                    ForEach(Row.all()) { row in
+                                        HStack(alignment: .center) {
+                                            ForEach(row.cells) { troop in
+                                                if !troop.isShip {
+                                                    Image(troop.imageURL)
+                                                        .resizable()
+                                                        .frame(width: self.troopSize, height: self.troopSize)
+                                                        .onTapGesture {
+                                                            self.selectTroop(troop)
+                                                            self.userData.previousShip = nil
+                                                            self.isShowingPopover = false
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -78,7 +105,7 @@ struct CalcView: View {
     var Defender: some View {
         VStack {
             Divider()
-            Text(userData.defenders.count == 0 ? "Choose Opponent" : "Opponent")
+            Text(userData.defenders.count == 0 ? "Select Opponent" : "Opponent")
                 .polyFont(size: 20)
             ForEach(0..<userData.defenders.count, id: \.self) { i in
                 TroopView(troop: self.$userData.defenders[i], isDefender: true)
@@ -91,7 +118,7 @@ struct CalcView: View {
         VStack {
             if (userData.defenders.count != 0) {
                 Divider()
-                Text(userData.attackers.count == 0 ? "Choose Attackers" : "Attackers")
+                Text(userData.attackers.count == 0 ? "Select Attackers" : "Attackers")
                     .polyFont(size: 20)
                 ScrollView() {
                     ForEach((0..<userData.attackers.count).reversed(), id: \.self) { i in

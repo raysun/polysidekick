@@ -44,7 +44,7 @@ extension Row {
                 Troop(imageURL: "Polytaur", maxHP: 40, attack: 4, defense: 3),
                 Troop(imageURL: "Baby Dragon", maxHP: 10, attack: 1, defense: 1),
                 Troop(imageURL: "Fire Dragon", maxHP: 15, attack: 2, defense: 2),
-                Troop(imageURL: "Navalon", maxHP: 40, attack: 4, defense: 3),
+                Troop(imageURL: "Navalon", maxHP: 40, attack: 4, defense: 3, isShip: true),
             ]),
             Row(cells: [
                 Troop(imageURL: "Amphibian", maxHP: 10, attack: 1, defense: 1),
