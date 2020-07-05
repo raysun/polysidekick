@@ -38,7 +38,7 @@ struct CalcView: View {
     @State var defender: Troop? = nil
     
     let rows = Row.all()
-    let troopWidth = CGFloat(70.0)
+    let troopSize = CGFloat(70.0)
     
     var TroopPicker: some View {
         ScrollView(.vertical) {
@@ -48,7 +48,7 @@ struct CalcView: View {
                         ForEach(row.cells) { troop in
                             Image(troop.imageURL)
                                 .resizable()
-                                .frame(width: self.troopWidth, height: self.troopWidth)
+                                .frame(width: self.troopSize, height: self.troopSize)
                                 //                                .clipShape(Circle())
                                 //                                .overlay(
                                 //                                    Circle().stroke(Color.white, lineWidth: 2))
@@ -64,9 +64,10 @@ struct CalcView: View {
                     }
                 }
             }
-        }.frame(maxHeight: troopWidth * 3.5)
+        }
+        .frame(maxHeight: troopSize * 3.5)
     }
-
+    
     var Defender: some View {
         VStack {
             Divider()
@@ -78,7 +79,7 @@ struct CalcView: View {
             }
         }
     }
-
+    
     var Attackers: some View {
         VStack {
             if (userData.defenders.count != 0) {
@@ -86,7 +87,7 @@ struct CalcView: View {
                 Text(userData.attackers.count == 0 ? "Choose Attackers" : "Attackers")
                     .polyFont(size: 20)
                 ScrollView() {
-                    ForEach(0..<userData.attackers.count, id: \.self) { i in
+                    ForEach((0..<userData.attackers.count).reversed(), id: \.self) { i in
                         TroopView(troop: self.$userData.attackers[i])
                             .padding([.leading, .trailing])
                     }
@@ -94,7 +95,7 @@ struct CalcView: View {
             }
         }.frame(maxHeight: .infinity)
     }
-
+    
     var BestAttacks: some View {
         VStack {
             Text("Defender")
@@ -110,7 +111,7 @@ struct CalcView: View {
             }.frame(maxHeight: .infinity)
         }
     }
-
+    
     var Buttons: some View {
         HStack(alignment: .center, spacing: 25.0) {
             Button("Calculate") {
@@ -129,7 +130,7 @@ struct CalcView: View {
             }
         }
     }
-
+    
     var body: some View {
         VStack {
             Text("Yadakkvisor")
@@ -137,7 +138,7 @@ struct CalcView: View {
             Divider()
             if (viewState == .input) {
                 TroopPicker
-//                    .padding()
+                //                    .padding()
                 Defender
                 Attackers
             } else if (viewState == .output) {
