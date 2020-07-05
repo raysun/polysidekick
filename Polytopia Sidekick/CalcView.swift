@@ -66,6 +66,7 @@ struct CalcView: View {
             }
         }.frame(maxHeight: troopWidth * 3.5)
     }
+
     var Defender: some View {
         VStack {
             Divider()
@@ -77,6 +78,7 @@ struct CalcView: View {
             }
         }
     }
+
     var Attackers: some View {
         VStack {
             if (userData.defenders.count != 0) {
@@ -92,6 +94,7 @@ struct CalcView: View {
             }
         }.frame(maxHeight: .infinity)
     }
+
     var BestAttacks: some View {
         VStack {
             Text("Defender")
@@ -107,6 +110,7 @@ struct CalcView: View {
             }.frame(maxHeight: .infinity)
         }
     }
+
     var Buttons: some View {
         HStack(alignment: .center, spacing: 25.0) {
             Button("Calculate") {
