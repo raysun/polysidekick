@@ -16,9 +16,11 @@ final class UserData: ObservableObject {
     @Published var previousShip: Troop?
 
     func reset() {
-        defenders.removeAll()
-        attackers.removeAll()
-        optimalTroops.removeAll()
-        previousShip = nil
+        DispatchQueue.main.async {
+            self.defenders.removeAll()
+            self.attackers.removeAll()
+            self.optimalTroops.removeAll()
+            self.previousShip = nil
+        }
     }
 }
