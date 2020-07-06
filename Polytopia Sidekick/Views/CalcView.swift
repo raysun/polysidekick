@@ -167,7 +167,7 @@ struct CalcView: View {
     
     var body: some View {
         VStack {
-            Text("Yadakkvisor")
+            Text("Polytopia Sidekick")
                 .polyFont(size: 28)
             Divider()
             if (viewState == .input) {
