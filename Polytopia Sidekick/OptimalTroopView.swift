@@ -15,14 +15,7 @@ struct OptimalTroopView: View {
 
     var body: some View {
         HStack() {
-            Image(troop.imageURL)
-                .resizable()
-                .frame(width: self.troopWidth, height: self.troopWidth)
-            if troop.shipType != "" {
-                Image(troop.shipType)
-                .resizable()
-                .frame(width: self.troopWidth, height: self.troopWidth)
-            }
+            TroopIconView(troop: troop)
             Text(String(format: "%.0f", troop.originalHP) + " → " + String(format: "%.0f", troop.hp))
         }
     }
