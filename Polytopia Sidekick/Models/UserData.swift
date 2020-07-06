@@ -19,5 +19,6 @@ final class UserData: ObservableObject {
         defenders.removeAll()
         attackers.removeAll()
         optimalTroops.removeAll()
+        previousShip = nil
     }
 }
