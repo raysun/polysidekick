@@ -35,21 +35,21 @@ extension Row {
                 Troop(imageURL: "Battleship", maxHP: 40, attack: 4, defense: 3, isShip: true),
             ]),
             Row(cells: [
-                Troop(imageURL: "Battle Sled", maxHP: 10, attack: 1, defense: 1),
-                Troop(imageURL: "Ice Archer", maxHP: 15, attack: 2, defense: 2),
-                Troop(imageURL: "Ice Fortress", maxHP: 40, attack: 4, defense: 3),
-                Troop(imageURL: "Gaami", maxHP: 40, attack: 4, defense: 3),
+                Troop(imageURL: "Battle Sled", maxHP: 15, attack: 3, defense: 2),
+                Troop(imageURL: "Ice Archer", maxHP: 10, attack: 0.1, defense: 1),
+                Troop(imageURL: "Ice Fortress", maxHP: 20, attack: 4, defense: 3),
+                Troop(imageURL: "Gaami", maxHP: 30, attack: 4, defense: 4),
             ]),
             Row(cells: [
-                Troop(imageURL: "Polytaur", maxHP: 40, attack: 4, defense: 3),
-                Troop(imageURL: "Baby Dragon", maxHP: 10, attack: 1, defense: 1),
-                Troop(imageURL: "Fire Dragon", maxHP: 15, attack: 2, defense: 2),
-                Troop(imageURL: "Navalon", maxHP: 40, attack: 4, defense: 3, isShip: true),
+                Troop(imageURL: "Polytaur", maxHP: 15, attack: 3, defense: 1),
+                Troop(imageURL: "Baby Dragon", maxHP: 15, attack: 3, defense: 3),
+                Troop(imageURL: "Fire Dragon", maxHP: 20, attack: 4, defense: 3),
+                Troop(imageURL: "Navalon", maxHP: 30, attack: 4, defense: 4),
             ]),
             Row(cells: [
-                Troop(imageURL: "Amphibian", maxHP: 10, attack: 1, defense: 1),
-                Troop(imageURL: "Tridention", maxHP: 15, attack: 2, defense: 2),
-                Troop(imageURL: "Crab", maxHP: 40, attack: 4, defense: 3),
+                Troop(imageURL: "Amphibian", maxHP: 10, attack: 2, defense: 1),
+                Troop(imageURL: "Tridention", maxHP: 15, attack: 3, defense: 1),
+                Troop(imageURL: "Crab", maxHP: 40, attack: 4, defense: 4),
             ]),
         ]
     }
