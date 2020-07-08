@@ -98,7 +98,7 @@ struct Troop: Identifiable {
         self.isShip = isShip
     }
     
-    mutating func inShip(ship: Troop? = nil) -> Troop {
+    mutating func copy(andConvertIntoShip ship: Troop? = nil) -> Troop {
         var copy = self
         copy.id = UUID()
         if (ship != nil) {

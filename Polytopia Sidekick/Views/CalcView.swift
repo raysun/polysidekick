@@ -47,7 +47,7 @@ struct CalcView: View {
 
     private func selectTroop(_ troop: Troop) {
         var troopCopy = troop
-        troopCopy = troopCopy.inShip(ship: self.userData.previousShip)
+        troopCopy = troopCopy.copy(andConvertIntoShip: self.userData.previousShip)
         if self.userData.defenders.count == 0 {
             self.userData.defenders.append(troopCopy)
         } else {
