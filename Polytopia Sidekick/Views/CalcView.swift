@@ -37,7 +37,7 @@ extension View {
 }
 
 struct CalcView: View {
-    @EnvironmentObject private var userData: UserData
+    @ObservedObject private var userData: UserData = userDataStore
     
     @State var viewState: CalcViewState = .input
     @State var defender: Troop? = nil
