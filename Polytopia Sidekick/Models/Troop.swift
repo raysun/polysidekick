@@ -69,12 +69,13 @@ struct Troop: Identifiable {
     var isUpgraded = false
     var originalHP = 0.0    // Used later to cache the starting HP before simulation
     var shipType = ""
+    var workingHP = 0.0
     
     var scaledAttack: Double {
-        attack * hp / maxHP
+        attack * workingHP / maxHP
     }
     var scaledDefense: Double {
-        defense * hp / maxHP * (isWalled ? 4.0 : isDefended ? 1.5 : 1.0)
+        defense * workingHP / maxHP * (isWalled ? 4.0 : isDefended ? 1.5 : 1.0)
     }
     
     var isUpgradable: Bool {

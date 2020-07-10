@@ -114,7 +114,6 @@ struct CalcView: View {
         NavigationView {
             List {
                 Section(header: Text("Opponent")) {
-
                     ForEach(userData.defenders) { defender in
                         OptimalTroopView(troop: defender)
                             .padding()
@@ -127,10 +126,8 @@ struct CalcView: View {
                             Text("Add Opponent")
                         }
                     }
-
                 }
                 Section(header: Text("Attackers")) {
-
                     ForEach(userData.attackers) { attacker in
                         OptimalTroopView(troop: attacker)
                             .padding()
@@ -141,7 +138,6 @@ struct CalcView: View {
                     NavigationLink(destination: TroopPicker()) {
                         Text("Add Attacker")
                     }
-
                 }
                 //                if (userData.defenders.count > 0) {
                 //                    Buttons

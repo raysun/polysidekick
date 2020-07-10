@@ -15,7 +15,7 @@ struct TroopPicker: View {
     @State var isShowingPopover = false
     @State var previousShip: Troop?
     let troopSize = CGFloat(70.0)
-
+    
     private func selectTroop(_ troop: Troop) {
         var troopCopy = troop
         troopCopy = troopCopy.copy(andConvertIntoShip: self.previousShip)
@@ -25,41 +25,49 @@ struct TroopPicker: View {
             self.userData.attackers.append(troopCopy)
         }
         self.presentationMode.wrappedValue.dismiss()
+        
+        let optim = Calc.calculate(defender: self.userData.defenders.first!, attackers: self.userData.attackers)
+        print(optim)
+//        self.userData.optimalTroops = optim.sequence
+        var defender = self.userData.defenders[0]
+        defender.originalHP = defender.hp
+        defender.hp = optim.defenderHealth
+        self.userData.defenders[0] = defender
+        self.userData.attackers = optim.sequence
+//        self.viewState = .output
     }
-
+    
     var body: some View {
-        ScrollView(.vertical) {
-            VStack {
-                ForEach(Row.all()) { row in
-                    HStack(alignment: .center) {
-                        ForEach(row.cells) { troop in
-                            Image(troop.imageURL)
-                                .resizable()
-                                .frame(width: self.troopSize, height: self.troopSize)
-                                .onTapGesture {
-                                    if (troop.isShip) {
-                                        self.previousShip = troop
-                                        self.isShowingPopover = true
-                                    } else {
-                                        self.selectTroop(troop)
-                                        self.previousShip = nil
-                                    }
-                            }.sheet(isPresented: self.$isShowingPopover) {
-                                Text("Select Troop in \(self.userData.previousShip?.imageURL ?? "")")
-                                    .polyFont(size: 24)
-                                VStack {
-                                    ForEach(Row.all()) { row in
-                                        HStack(alignment: .center) {
-                                            ForEach(row.cells) { troop in
-                                                if !troop.isShip {
-                                                    Image(troop.imageURL)
-                                                        .resizable()
-                                                        .frame(width: self.troopSize, height: self.troopSize)
-                                                        .onTapGesture {
-                                                            self.selectTroop(troop)
-                                                            self.userData.previousShip = nil
-                                                            self.isShowingPopover = false
-                                                    }
+        VStack {
+            ForEach(Row.all()) { row in
+                HStack(alignment: .center) {
+                    ForEach(row.cells) { troop in
+                        Image(troop.imageURL)
+                            .resizable()
+                            .frame(width: self.troopSize, height: self.troopSize)
+                            .onTapGesture {
+                                if (troop.isShip) {
+                                    self.previousShip = troop
+                                    self.isShowingPopover = true
+                                } else {
+                                    self.selectTroop(troop)
+                                    self.previousShip = nil
+                                }
+                        }.sheet(isPresented: self.$isShowingPopover) {
+                            Text("Select Troop in \(self.userData.previousShip?.imageURL ?? "")")
+                                .polyFont(size: 24)
+                            VStack {
+                                ForEach(Row.all()) { row in
+                                    HStack(alignment: .center) {
+                                        ForEach(row.cells) { troop in
+                                            if !troop.isShip {
+                                                Image(troop.imageURL)
+                                                    .resizable()
+                                                    .frame(width: self.troopSize, height: self.troopSize)
+                                                    .onTapGesture {
+                                                        self.selectTroop(troop)
+                                                        self.userData.previousShip = nil
+                                                        self.isShowingPopover = false
                                                 }
                                             }
                                         }
