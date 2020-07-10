@@ -14,6 +14,7 @@ struct TroopPicker: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var isShowingPopover = false
     @State var previousShip: Troop?
+    var isDefender = false
     let troopSize = CGFloat(70.0)
     
     private func selectTroop(_ troop: Troop) {
@@ -27,7 +28,7 @@ struct TroopPicker: View {
             print(optim)
             var defender = self.userData.defenders[0]
 //            defender.originalHP = defender.hp
-            defender.hp = optim.defenderHealth
+            defender.workingHP = optim.defenderHealth
             self.userData.defenders[0] = defender
             self.userData.attackers = optim.sequence
         }

@@ -68,6 +68,19 @@ struct Troop: Identifiable {
     var isDefended = false
     var isUpgraded = false    
     var shipType = ""
+    var _workingHP: Double?
+    var workingHP: Double {
+        get {
+            if let value = _workingHP {
+                return value
+            } else {
+                return hp
+            }
+        }
+        set {
+            _workingHP = newValue
+        }
+    }
     
     var scaledAttack: Double {
         attack * hp / maxHP

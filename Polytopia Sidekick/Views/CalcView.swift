@@ -39,11 +39,13 @@ extension View {
 struct CalcView: View {
     @EnvironmentObject private var userData: UserData
     //    @State private var userData = UserData()
-    
     @State var viewState: CalcViewState = .input
     @State var defender: Troop? = nil
-    
-    
+
+    var isPickingDefender: Bool {
+        self.userData.defenders.count < 1
+    }
+
     let troopSize = CGFloat(70.0)
     
     var Defender: some View {
@@ -90,84 +92,59 @@ struct CalcView: View {
             }.frame(maxHeight: .infinity)
         }
     }
-    
-    //    var Buttons: some View {
-    //        HStack(alignment: .center, spacing: 25.0) {
-    //            Button("Calculate") {
-    //                let optim = Calc.calculate(defender: self.userData.defenders.first!, attackers: self.userData.attackers)
-    //                print(optim)
-    //                self.userData.optimalTroops = optim.sequence
-    //                var defender = self.userData.defenders[0]
-    //                defender.originalHP = defender.hp
-    //                defender.hp = optim.defenderHealth
-    //                self.defender = defender
-    //                self.viewState = .output
-    //            }
-    //            Button("Reset") {
-    //                self.userData.reset()
-    //                self.viewState = .input
-    //            }
-    //        }
-    //    }
-    
+
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Opponent")) {
-                    ForEach(userData.defenders) { defender in
-                        OptimalTroopView(troop: defender)
-                            .padding()
-                    }
-                    .onDelete { offsets in
-                        self.userData.defenders.remove(atOffsets: offsets)
-                    }
-                    if (userData.defenders.count < 1) {
-                        NavigationLink(destination: TroopPicker()) {
-                            Text("Add Opponent")
+                if userData.defenders.count > 0 {
+                    Section(header: Text("Opponent")) {
+                        ForEach(userData.defenders) { defender in
+                            OptimalTroopView(troop: defender)
+                                .padding()
                         }
+                        .onDelete { offsets in
+                            self.userData.defenders.remove(atOffsets: offsets)
+                        }
+    //                    if (userData.defenders.count < 1) {
+    //                        NavigationLink(destination: TroopPicker()) {
+    //                            Text("Add Opponent")
+    //                        }
+    //                    }
                     }
                 }
-                Section(header: Text("Attackers")) {
-                    ForEach(userData.attackers) { attacker in
-                        OptimalTroopView(troop: attacker)
-                            .padding()
-                    }
-                    .onDelete { offsets in
-                        self.userData.attackers.remove(atOffsets: offsets)
-                    }
-                    NavigationLink(destination: TroopPicker()) {
-                        Text("Add Attacker")
+
+                if userData.attackers.count > 0 {
+                    Section(header: Text("Attackers")) {
+                        ForEach(userData.attackers) { attacker in
+                            OptimalTroopView(troop: attacker)
+                                .padding()
+                        }
+                        .onDelete { offsets in
+                            self.userData.attackers.remove(atOffsets: offsets)
+                        }
+    //                    NavigationLink(destination: TroopPicker()) {
+    //                        Text("Add Attacker")
+    //                    }
                     }
                 }
-                //                if (userData.defenders.count > 0) {
-                //                    Buttons
-                //                }
-                //                Section(header: "Attackers") {
-                //                    Attackers
-                //                }
-                //                Text("Polytoolpia")
-                //                    .polyFont(size: 28)
-                //                Divider()
-                //                if (viewState == .input) {
-                //                    TroopPicker
-                //                    .padding()
-                //                    Defender
-                //                    Attackers
-                //                } else if (viewState == .output) {
-                //                    BestAttacks
-                //                }
-                
             }
             .listStyle(GroupedListStyle())
             .navigationBarTitle("Polytoolpia")
-            .navigationBarItems(trailing:
+            .navigationBarItems(leading:
                 Button("Reset") {
                     self.userData.reset()
                     self.viewState = .input
-                }
-            )
+                }, trailing:
+                Button(action: {}) {
+                    NavigationLink(destination: TroopPicker(isDefender: isPickingDefender)) {
+                        HStack {
+                            Image(systemName: "plus")
+                            Text(isPickingDefender ? "Opponent" : "Attacker")
+                        }
+                    }
+            })
+                .animation(.easeInOut)
         }
-        .animation(.easeInOut)
     }
 }
 
@@ -176,3 +153,4 @@ struct ContentView_Previews: PreviewProvider {
         CalcView().environmentObject(UserData())
     }
 }
+
