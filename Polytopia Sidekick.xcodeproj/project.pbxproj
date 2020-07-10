@@ -22,7 +22,7 @@
 		B6761A5D24B7E81700BB92D8 /* TroopPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6761A5C24B7E81700BB92D8 /* TroopPicker.swift */; };
 		B6A3BCE324ABA28F00E5719D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A3BCE224ABA28F00E5719D /* UserData.swift */; };
 		B6A3BCE624ABB38A00E5719D /* Calc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A3BCE524ABB38A00E5719D /* Calc.swift */; };
-		B6A3BCE824ABB44500E5719D /* TroopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A3BCE724ABB44500E5719D /* TroopView.swift */; };
+		B6A3BCE824ABB44500E5719D /* TroopEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A3BCE724ABB44500E5719D /* TroopEditor.swift */; };
 		B6A3BCEA24ABC19500E5719D /* OptimalTroopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A3BCE924ABC19500E5719D /* OptimalTroopView.swift */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +65,7 @@
 		B6761A5C24B7E81700BB92D8 /* TroopPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroopPicker.swift; sourceTree = "<group>"; };
 		B6A3BCE224ABA28F00E5719D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		B6A3BCE524ABB38A00E5719D /* Calc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calc.swift; sourceTree = "<group>"; };
-		B6A3BCE724ABB44500E5719D /* TroopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroopView.swift; sourceTree = "<group>"; };
+		B6A3BCE724ABB44500E5719D /* TroopEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroopEditor.swift; sourceTree = "<group>"; };
 		B6A3BCE924ABC19500E5719D /* OptimalTroopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptimalTroopView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -161,9 +161,9 @@
 		237331EE24B2AA0E00D078F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B6761A5C24B7E81700BB92D8 /* TroopPicker.swift */,
 				233E399524A968EA002A931F /* CalcView.swift */,
-				B6A3BCE724ABB44500E5719D /* TroopView.swift */,
+				B6761A5C24B7E81700BB92D8 /* TroopPicker.swift */,
+				B6A3BCE724ABB44500E5719D /* TroopEditor.swift */,
 				B6A3BCE924ABC19500E5719D /* OptimalTroopView.swift */,
 				237331EC24B2A9DD00D078F7 /* TroopIconView.swift */,
 			);
@@ -328,7 +328,7 @@
 				B6A3BCE624ABB38A00E5719D /* Calc.swift in Sources */,
 				233E399624A968EA002A931F /* CalcView.swift in Sources */,
 				B6A3BCEA24ABC19500E5719D /* OptimalTroopView.swift in Sources */,
-				B6A3BCE824ABB44500E5719D /* TroopView.swift in Sources */,
+				B6A3BCE824ABB44500E5719D /* TroopEditor.swift in Sources */,
 				237331ED24B2A9DD00D078F7 /* TroopIconView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

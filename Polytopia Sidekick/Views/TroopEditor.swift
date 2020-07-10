@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-struct TroopView: View {
+struct TroopEditor: View {
     @Binding var troop: Troop
     
     let troopWidth = CGFloat(60.0)

@@ -67,7 +67,7 @@ struct Troop: Identifiable {
     var isWalled = false
     var isDefended = false
     var isUpgraded = false    
-    var shipType = ""
+    var typeOfTroopInShip = ""
     var _workingHP: Double?
     var workingHP: Double {
         get {
@@ -110,24 +110,15 @@ struct Troop: Identifiable {
         self.isShip = isShip
     }
     
-    mutating func copy(andConvertIntoShip ship: Troop? = nil) -> Troop {
+    mutating func copy() -> Troop {
         var copy = self
         copy.id = UUID()
-        if (ship != nil) {
-            copy.isShip = true
-            copy.shipType = ship?.imageURL ?? ""
-            switch(copy.shipType) {
-            case "Boat":
-                copy.attack = 1
-                copy.defense = 1
-            case "Ship":
-                copy.attack = 2
-                copy.defense = 2
-            default:
-                copy.attack = 4
-                copy.defense = 3
-            }
-        }
         return copy
+    }
+
+    mutating func putInShip(_ troop: Troop) {
+        typeOfTroopInShip = troop.imageURL
+        maxHP = troop.maxHP
+        hp = troop.hp
     }
 }

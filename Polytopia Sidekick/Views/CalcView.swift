@@ -48,34 +48,34 @@ struct CalcView: View {
 
     let troopSize = CGFloat(70.0)
     
-    var Defender: some View {
+//    var Defender: some View {
         //        VStack {
         //            Divider()
         //            Text(userData.defenders.count == 0 ? "Select Opponent" : "Opponent")
         //                .polyFont(size: 20)
-        Group {
-            ForEach(0..<userData.defenders.count, id: \.self) { i in
-                TroopView(troop: self.$userData.defenders[i], isDefender: true)
-                    .padding()
-            }
-        }
-    }
+//        Group {
+//            ForEach(0..<userData.defenders.count, id: \.self) { i in
+//                TroopView(troop: self.$userData.defenders[i], isDefender: true)
+//                    .padding()
+//            }
+//        }
+//    }
     
-    var Attackers: some View {
-        Group {
+//    var Attackers: some View {
+//        Group {
             //            if (userData.defenders.count != 0) {
             //                Divider()
             //                Text(userData.attackers.count == 0 ? "Select Attackers" : "Attackers")
             //                    .polyFont(size: 20)
             //                ScrollView() {
-            ForEach((0..<userData.attackers.count).reversed(), id: \.self) { i in
-                TroopView(troop: self.$userData.attackers[i])
-                    .padding([.leading, .trailing])
-            }
+//            ForEach((0..<userData.attackers.count).reversed(), id: \.self) { i in
+//                TroopView(troop: self.$userData.attackers[i])
+//                    .padding([.leading, .trailing])
+//            }
             //                }
-        }
+//        }
         //        }.frame(maxHeight: .infinity)
-    }
+//    }
     
     var BestAttacks: some View {
         VStack {
