@@ -30,7 +30,7 @@ struct TroopView: View {
             if (isDefender) {
                 ZStack {
                     Image(systemName: self.troop.isDefended ? "shield" : "shield.slash")
-                        .resizable()
+                        .resizable( )
                         .opacity(self.troop.isDefended ? 1.0 : 0.5)
                         .frame(width: 22, height: 22)
                     if (self.troop.isWalled) {
