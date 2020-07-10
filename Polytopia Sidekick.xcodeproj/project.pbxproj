@@ -97,7 +97,6 @@
 		233E398524A968EA002A931F = {
 			isa = PBXGroup;
 			children = (
-				B6761A5C24B7E81700BB92D8 /* TroopPicker.swift */,
 				237331EF24B2AAAD00D078F7 /* .gitignore */,
 				233E399024A968EA002A931F /* Polytopia Sidekick */,
 				233E39A724A968ED002A931F /* Polytopia SidekickTests */,
@@ -162,6 +161,7 @@
 		237331EE24B2AA0E00D078F7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B6761A5C24B7E81700BB92D8 /* TroopPicker.swift */,
 				233E399524A968EA002A931F /* CalcView.swift */,
 				B6A3BCE724ABB44500E5719D /* TroopView.swift */,
 				B6A3BCE924ABC19500E5719D /* OptimalTroopView.swift */,

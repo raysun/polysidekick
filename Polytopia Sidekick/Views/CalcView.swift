@@ -42,10 +42,10 @@ struct CalcView: View {
     
     @State var viewState: CalcViewState = .input
     @State var defender: Troop? = nil
-
-
+    
+    
     let troopSize = CGFloat(70.0)
-
+    
     var Defender: some View {
         //        VStack {
         //            Divider()
@@ -156,27 +156,14 @@ struct CalcView: View {
                 //                } else if (viewState == .output) {
                 //                    BestAttacks
                 //                }
-
+                
             }
             .listStyle(GroupedListStyle())
             .navigationBarTitle("Polytoolpia")
             .navigationBarItems(trailing:
-                HStack {
-                    Button("Calculate") {
-                        let optim = Calc.calculate(defender: self.userData.defenders.first!, attackers: self.userData.attackers)
-                        print(optim)
-                        self.userData.optimalTroops = optim.sequence
-                        var defender = self.userData.defenders[0]
-                        defender.originalHP = defender.hp
-                        defender.hp = optim.defenderHealth
-                        self.userData.defenders[0] = defender
-                        self.userData.attackers = optim.sequence
-                        self.viewState = .output
-                    }
-                    Button("Reset") {
-                        self.userData.reset()
-                        self.viewState = .input
-                    }
+                Button("Reset") {
+                    self.userData.reset()
+                    self.viewState = .input
                 }
             )
         }

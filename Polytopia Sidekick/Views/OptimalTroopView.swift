@@ -16,7 +16,7 @@ struct OptimalTroopView: View {
     var body: some View {
         HStack() {
             TroopIconView(troop: troop)
-            Text(String(format: "%.0f", troop.hp) + " → " + String(format: "%.0f", troop.workingHP))
+            Text(String(format: "%.0f", troop.hp) + " → " + String(format: "%.0f", troop.hp))
         }
     }
 }

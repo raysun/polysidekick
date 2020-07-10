@@ -23,18 +23,17 @@ struct TroopPicker: View {
             self.userData.defenders.append(troopCopy)
         } else {
             self.userData.attackers.append(troopCopy)
+            let optim = Calc.calculate(defender: self.userData.defenders.first!, attackers: self.userData.attackers)
+            print(optim)
+            var defender = self.userData.defenders[0]
+//            defender.originalHP = defender.hp
+            defender.hp = optim.defenderHealth
+            self.userData.defenders[0] = defender
+            self.userData.attackers = optim.sequence
         }
-        self.presentationMode.wrappedValue.dismiss()
         
-        let optim = Calc.calculate(defender: self.userData.defenders.first!, attackers: self.userData.attackers)
-        print(optim)
-//        self.userData.optimalTroops = optim.sequence
-        var defender = self.userData.defenders[0]
-        defender.originalHP = defender.hp
-        defender.hp = optim.defenderHealth
-        self.userData.defenders[0] = defender
-        self.userData.attackers = optim.sequence
-//        self.viewState = .output
+        
+        self.presentationMode.wrappedValue.dismiss()
     }
     
     var body: some View {
