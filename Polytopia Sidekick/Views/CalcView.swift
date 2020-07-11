@@ -11,6 +11,7 @@ import SwiftUI
 struct OptimizationValue {
     var defenderHealth: Double
     var sequence: [Troop]
+    let remaining: [Troop]
 }
 
 enum CalcViewState {

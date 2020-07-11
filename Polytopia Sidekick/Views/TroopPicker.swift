@@ -34,7 +34,7 @@ struct TroopPicker: View {
             var defender = self.userData.defenders[0]
             defender.workingHP = optim.defenderHealth
             self.userData.defenders[0] = defender
-            self.userData.attackers = optim.sequence
+            self.userData.attackers = optim.sequence + optim.remaining
         }
         self.isShowingPopover = false
         self.presentationMode.wrappedValue.dismiss()

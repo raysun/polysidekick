@@ -27,7 +27,7 @@ class Calc {
 
     private static func optim(defender: Troop, attackers: [Troop], sequence: [Troop], remaining: [Troop], defenderHealth: Double) -> OptimizationValue {
         if remaining.count == 0 || defenderHealth <= 0 {
-            return OptimizationValue(defenderHealth: defenderHealth, sequence: sequence)
+            return OptimizationValue(defenderHealth: defenderHealth, sequence: sequence, remaining: remaining)
         } else {
             var returnedValues = [OptimizationValue]()
             for var troop in remaining {

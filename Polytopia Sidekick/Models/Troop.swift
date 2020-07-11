@@ -83,10 +83,10 @@ struct Troop: Identifiable {
     }
     
     var scaledAttack: Double {
-        attack * hp / maxHP
+        attack * workingHP / maxHP
     }
     var scaledDefense: Double {
-        defense * hp / maxHP * (isWalled ? 4.0 : isDefended ? 1.5 : 1.0)
+        defense * workingHP / maxHP * (isWalled ? 4.0 : isDefended ? 1.5 : 1.0)
     }
     
     var isUpgradable: Bool {
