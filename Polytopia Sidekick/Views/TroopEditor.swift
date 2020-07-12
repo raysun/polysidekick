@@ -40,7 +40,7 @@ struct TroopEditor: View {
                     }
                 }
             }
-        }
+        }.padding()
     }
     
 }

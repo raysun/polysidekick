@@ -18,17 +18,13 @@ struct TroopIconView: View {
     
     var body: some View {
         HStack {
-            if troop.isShip {
-                Image(troop.imageURL)
-                    .resizable()
-                    .frame(width: troopSize, height: troopSize)
+            Image(troop.imageURL)
+                .resizable()
+                .frame(width: troopSize, height: troopSize)
+            if troop.typeOfTroopInShip != "" {
                 Image(troop.typeOfTroopInShip)
                     .resizable()
                     .frame(width: troopInShipSize, height: troopInShipSize)
-            } else {
-                Image(troop.imageURL)
-                    .resizable()
-                    .frame(width: troopSize, height: troopSize)
             }
         }
     }
