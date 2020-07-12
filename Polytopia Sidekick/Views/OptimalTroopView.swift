@@ -14,13 +14,21 @@ struct OptimalTroopView: View {
     let troopWidth = CGFloat(60.0)
     var isOpponent = false
 
+    var startingHP: String {
+        String(format: "%.0f", troop.hp)
+    }
+
     var body: some View {
         HStack() {
             TroopIconView(troop: troop)
-            if (isOpponent || troop.didAttack) {
-                Text(String(format: "%.0f", troop.hp) + " → " + String(format: "%.0f", troop.workingHP))
+            if isOpponent {
+                Text(startingHP + " → " + String(format: "%.0f", troop.workingHP))
             } else {
-                Text("Did not attack")
+                if troop.didAttack && troop.takesDamageFromOpponent {
+                    Text(startingHP + " → " + String(format: "%.0f", troop.workingHP))
+                } else {
+                    Text(startingHP + (troop.didAttack ? " (ranged attack)" : " (did not attack)"))
+                }
             }
         }
     }

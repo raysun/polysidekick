@@ -25,25 +25,25 @@ extension Row {
                 Troop(imageURL: "Catapult", maxHP: 15, attack: 4, defense: 0),
             ]),
             Row(cells: [
-                Troop(imageURL: "Defender", maxHP: 15, attack: 1, defense: 3),                
-                Troop(imageURL: "Archer", maxHP: 10, attack: 2, defense: 1),
+                Troop(imageURL: "Defender", maxHP: 15, attack: 1, defense: 3, takesDamageFromOpponent: false),
+                Troop(imageURL: "Archer", maxHP: 10, attack: 2, defense: 1, takesDamageFromOpponent: false),
                 Troop(imageURL: "Swordsman", maxHP: 15, attack: 3, defense: 3),
             ]),
             Row(cells: [
-                Troop(imageURL: "Boat", maxHP: 10, attack: 1, defense: 1, isShip: true),
-                Troop(imageURL: "Ship", maxHP: 15, attack: 2, defense: 2, isShip: true),
-                Troop(imageURL: "Battleship", maxHP: 40, attack: 4, defense: 3, isShip: true),
+                Troop(imageURL: "Boat", maxHP: 10, attack: 1, defense: 1, isShip: true, takesDamageFromOpponent: false),
+                Troop(imageURL: "Ship", maxHP: 15, attack: 2, defense: 2, isShip: true, takesDamageFromOpponent: false),
+                Troop(imageURL: "Battleship", maxHP: 40, attack: 4, defense: 3, isShip: true, takesDamageFromOpponent: false),
             ]),
             Row(cells: [
                 Troop(imageURL: "Battle Sled", maxHP: 15, attack: 3, defense: 2),
-                Troop(imageURL: "Ice Archer", maxHP: 10, attack: 0.1, defense: 1),
-                Troop(imageURL: "Ice Fortress", maxHP: 20, attack: 4, defense: 3),
+                Troop(imageURL: "Ice Archer", maxHP: 10, attack: 0.1, defense: 1, takesDamageFromOpponent: false),
+                Troop(imageURL: "Ice Fortress", maxHP: 20, attack: 4, defense: 3, takesDamageFromOpponent: false),
                 Troop(imageURL: "Gaami", maxHP: 30, attack: 4, defense: 4),
             ]),
             Row(cells: [
                 Troop(imageURL: "Polytaur", maxHP: 15, attack: 3, defense: 1),
-                Troop(imageURL: "Baby Dragon", maxHP: 15, attack: 3, defense: 3),
-                Troop(imageURL: "Fire Dragon", maxHP: 20, attack: 4, defense: 3),
+                Troop(imageURL: "Baby Dragon", maxHP: 15, attack: 3, defense: 3, takesDamageFromOpponent: false),
+                Troop(imageURL: "Fire Dragon", maxHP: 20, attack: 4, defense: 3, takesDamageFromOpponent: false),
                 Troop(imageURL: "Navalon", maxHP: 30, attack: 4, defense: 4),
             ]),
             Row(cells: [
@@ -63,6 +63,7 @@ struct Troop: Identifiable {
     var attack: Double
     var defense: Double
     var isShip = false
+    var takesDamageFromOpponent = true
 
     var isWalled = false
     var isDefended = false
@@ -102,13 +103,14 @@ struct Troop: Identifiable {
         isUpgraded = true
     }
     
-    init(imageURL: String, maxHP: Double, attack: Double, defense: Double, isShip: Bool = false) {
+    init(imageURL: String, maxHP: Double, attack: Double, defense: Double, isShip: Bool = false, takesDamageFromOpponent: Bool = true) {
         self.imageURL = imageURL
         self.maxHP = maxHP
         self.attack = attack
         self.defense = defense
         self.hp = maxHP
         self.isShip = isShip
+        self.takesDamageFromOpponent = takesDamageFromOpponent
     }
     
     mutating func copy() -> Troop {

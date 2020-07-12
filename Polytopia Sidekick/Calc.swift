@@ -39,7 +39,7 @@ class Calc {
                 var defenderCopy = defender
                 defenderCopy.workingHP = localDefenderHealth
                 var localSequence = sequence
-                if (localDefenderHealth > 0) {
+                if (localDefenderHealth > 0 && troop.takesDamageFromOpponent) {
                     let damageToAttacker = round(4.5 * defender.defense * defender.scaledDefense/(defender.scaledDefense + troop.scaledAttack))
                     print("Damage to attacker: \(damageToAttacker)")
                     troop.workingHP = max(0, troop.workingHP - damageToAttacker)
