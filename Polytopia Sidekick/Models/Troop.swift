@@ -22,12 +22,13 @@ extension Row {
                 Troop(imageURL: "Rider", maxHP: 10, attack: 2, defense: 1),
                 Troop(imageURL: "Giant", maxHP: 40, attack: 5, defense: 4),
                 Troop(imageURL: "Knight", maxHP: 15, attack: 3.5, defense: 1),
-                Troop(imageURL: "Catapult", maxHP: 15, attack: 4, defense: 0),
+                Troop(imageURL: "Swordsman", maxHP: 15, attack: 3, defense: 3),
+
             ]),
             Row(cells: [
-                Troop(imageURL: "Defender", maxHP: 15, attack: 1, defense: 3, takesDamageFromOpponent: false),
+                Troop(imageURL: "Catapult", maxHP: 15, attack: 4, defense: 0, takesDamageFromOpponent: false),
                 Troop(imageURL: "Archer", maxHP: 10, attack: 2, defense: 1, takesDamageFromOpponent: false),
-                Troop(imageURL: "Swordsman", maxHP: 15, attack: 3, defense: 3),
+                Troop(imageURL: "Defender", maxHP: 15, attack: 1, defense: 3),
             ]),
             Row(cells: [
                 Troop(imageURL: "Boat", maxHP: 10, attack: 1, defense: 1, isShip: true, takesDamageFromOpponent: false),

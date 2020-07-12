@@ -21,4 +21,14 @@ final class UserData: ObservableObject {
         optimalTroops.removeAll()
         previousShip = nil
     }
+
+    // Calculate optimal attacks
+    func recalculate() {
+        let optim = Calc.calculate(defender: defenders.first!, attackers: attackers)
+        print(optim)
+        var defender = defenders[0]
+        defender.workingHP = optim.defenderHealth
+        defenders[0] = defender
+        attackers = optim.sequence
+    }
 }

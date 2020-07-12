@@ -17,7 +17,7 @@ struct TroopPicker: View {
     @State var selectedTroop = Troop(imageURL: "Warrior", maxHP: 10, attack: 2, defense: 2)
     var isDefender = false
     let troopSize = CGFloat(70.0)
-    
+
     private func addTroop(withTroopInShip troopInShip: Troop? = nil) {
         var troopCopy = selectedTroop.copy()
         if let troopInShip = troopInShip {
@@ -27,14 +27,7 @@ struct TroopPicker: View {
             self.userData.defenders.append(troopCopy)
         } else {
             self.userData.attackers.append(troopCopy)
-
-            // Calcuate optimal attacks
-            let optim = Calc.calculate(defender: self.userData.defenders.first!, attackers: self.userData.attackers)
-            print(optim)
-            var defender = self.userData.defenders[0]
-            defender.workingHP = optim.defenderHealth
-            self.userData.defenders[0] = defender
-            self.userData.attackers = optim.sequence
+            self.userData.recalculate()
         }
         self.isShowingPopover = false
         self.presentationMode.wrappedValue.dismiss()

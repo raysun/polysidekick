@@ -88,6 +88,7 @@ struct CalcView: View {
                         }
                         .onDelete { offsets in
                             self.userData.attackers.remove(atOffsets: offsets)
+                            self.userData.recalculate()
                         }
                     }
                 }
