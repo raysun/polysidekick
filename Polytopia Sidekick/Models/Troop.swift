@@ -63,7 +63,7 @@ struct Troop: Identifiable {
     var attack: Double
     var defense: Double
     var isShip = false
-    
+
     var isWalled = false
     var isDefended = false
     var isUpgraded = false    
@@ -81,6 +81,7 @@ struct Troop: Identifiable {
             _workingHP = newValue
         }
     }
+    var didAttack = false
     
     var scaledAttack: Double {
         attack * workingHP / maxHP

@@ -12,11 +12,16 @@ import SwiftUI
 struct OptimalTroopView: View {
     let troop: Troop
     let troopWidth = CGFloat(60.0)
+    var isOpponent = false
 
     var body: some View {
         HStack() {
             TroopIconView(troop: troop)
-            Text(String(format: "%.0f", troop.hp) + " → " + String(format: "%.0f", troop.workingHP))
+            if (isOpponent || troop.didAttack) {
+                Text(String(format: "%.0f", troop.hp) + " → " + String(format: "%.0f", troop.workingHP))
+            } else {
+                Text("Did not attack")
+            }
         }
     }
 }

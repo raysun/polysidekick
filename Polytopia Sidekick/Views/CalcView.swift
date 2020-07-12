@@ -11,7 +11,7 @@ import SwiftUI
 struct OptimizationValue {
     var defenderHealth: Double
     var sequence: [Troop]
-    let remaining: [Troop]
+//    let remaining: [Troop]
 }
 
 enum CalcViewState {
@@ -48,36 +48,7 @@ struct CalcView: View {
     }
 
     let troopSize = CGFloat(70.0)
-    
-//    var Defender: some View {
-        //        VStack {
-        //            Divider()
-        //            Text(userData.defenders.count == 0 ? "Select Opponent" : "Opponent")
-        //                .polyFont(size: 20)
-//        Group {
-//            ForEach(0..<userData.defenders.count, id: \.self) { i in
-//                TroopView(troop: self.$userData.defenders[i], isDefender: true)
-//                    .padding()
-//            }
-//        }
-//    }
-    
-//    var Attackers: some View {
-//        Group {
-            //            if (userData.defenders.count != 0) {
-            //                Divider()
-            //                Text(userData.attackers.count == 0 ? "Select Attackers" : "Attackers")
-            //                    .polyFont(size: 20)
-            //                ScrollView() {
-//            ForEach((0..<userData.attackers.count).reversed(), id: \.self) { i in
-//                TroopView(troop: self.$userData.attackers[i])
-//                    .padding([.leading, .trailing])
-//            }
-            //                }
-//        }
-        //        }.frame(maxHeight: .infinity)
-//    }
-    
+
     var BestAttacks: some View {
         VStack {
             Text("Opponent")
@@ -100,17 +71,12 @@ struct CalcView: View {
                 if userData.defenders.count > 0 {
                     Section(header: Text("Opponent")) {
                         ForEach(userData.defenders) { defender in
-                            OptimalTroopView(troop: defender)
+                            OptimalTroopView(troop: defender, isOpponent: true)
                                 .padding()
                         }
                         .onDelete { offsets in
                             self.userData.defenders.remove(atOffsets: offsets)
                         }
-    //                    if (userData.defenders.count < 1) {
-    //                        NavigationLink(destination: TroopPicker()) {
-    //                            Text("Add Opponent")
-    //                        }
-    //                    }
                     }
                 }
 
@@ -123,9 +89,6 @@ struct CalcView: View {
                         .onDelete { offsets in
                             self.userData.attackers.remove(atOffsets: offsets)
                         }
-    //                    NavigationLink(destination: TroopPicker()) {
-    //                        Text("Add Attacker")
-    //                    }
                     }
                 }
             }

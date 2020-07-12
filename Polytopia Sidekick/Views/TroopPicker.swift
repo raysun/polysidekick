@@ -34,14 +34,14 @@ struct TroopPicker: View {
             var defender = self.userData.defenders[0]
             defender.workingHP = optim.defenderHealth
             self.userData.defenders[0] = defender
-            self.userData.attackers = optim.sequence + optim.remaining
+            self.userData.attackers = optim.sequence
         }
         self.isShowingPopover = false
         self.presentationMode.wrappedValue.dismiss()
     }
     
     var body: some View {
-        List {
+        VStack {
             ForEach(Row.all()) { row in
                 HStack(alignment: .center) {
                     ForEach(row.cells) { troop in

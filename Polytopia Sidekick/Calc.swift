@@ -20,6 +20,7 @@ class Calc {
         var tmpAttackers = [Troop]()
         for var troop in attackers {
             troop.workingHP = troop.hp
+            troop.didAttack = false
             tmpAttackers.append(troop)
         }
         return optim(defender: tmpDefender, attackers: tmpAttackers, sequence: [], remaining: tmpAttackers, defenderHealth: tmpDefender.workingHP)
@@ -27,10 +28,11 @@ class Calc {
 
     private static func optim(defender: Troop, attackers: [Troop], sequence: [Troop], remaining: [Troop], defenderHealth: Double) -> OptimizationValue {
         if remaining.count == 0 || defenderHealth <= 0 {
-            return OptimizationValue(defenderHealth: defenderHealth, sequence: sequence, remaining: remaining)
+            return OptimizationValue(defenderHealth: defenderHealth, sequence: sequence + remaining)
         } else {
             var returnedValues = [OptimizationValue]()
             for var troop in remaining {
+                troop.didAttack = true
                 let damageToDefender = round(4.5 * troop.attack * troop.scaledAttack/(troop.scaledAttack + defender.scaledDefense))
                 print("Troop: \(troop.imageURL), HP: \(troop.workingHP) Defender: \(defender.imageURL), Damage to defender: \(damageToDefender)")
                 let localDefenderHealth = max(0, defenderHealth - damageToDefender)
