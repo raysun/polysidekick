@@ -23,6 +23,7 @@ struct OptimalTroopView: View {
             TroopIconView(troop: troop)
             if isOpponent {
                 Text(startingHP + " → " + String(format: "%.0f", troop.workingHP))
+                ShieldIcon(troop: troop)
             } else {
                 if troop.didAttack && troop.takesDamageFromOpponent {
                     Text(startingHP + " → " + String(format: "%.0f", troop.workingHP))

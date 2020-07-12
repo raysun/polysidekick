@@ -28,17 +28,7 @@ struct TroopEditor: View {
                     self.troop.upgrade()
             }
             if (isDefender) {
-                ZStack {
-                    Image(systemName: self.troop.isDefended ? "shield" : "shield.slash")
-                        .resizable( )
-                        .opacity(self.troop.isDefended ? 1.0 : 0.5)
-                        .frame(width: 22, height: 22)
-                    if (self.troop.isWalled) {
-                        Image(systemName: "shield")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                    }
-                }
+                ShieldIcon(troop: troop)
                 .onTapGesture {
                     if !self.troop.isDefended {
                         self.troop.isDefended = true

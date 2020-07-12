@@ -20,6 +20,7 @@
 		237331F024B2AAAD00D078F7 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 237331EF24B2AAAD00D078F7 /* .gitignore */; };
 		B645CDC324B14A29002F92D0 /* PoiretOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B645CDC124B149AD002F92D0 /* PoiretOne-Regular.ttf */; };
 		B6761A5D24B7E81700BB92D8 /* TroopPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6761A5C24B7E81700BB92D8 /* TroopPicker.swift */; };
+		B6761A6124BBC6C600BB92D8 /* ShieldIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6761A6024BBC6C600BB92D8 /* ShieldIcon.swift */; };
 		B6A3BCE324ABA28F00E5719D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A3BCE224ABA28F00E5719D /* UserData.swift */; };
 		B6A3BCE624ABB38A00E5719D /* Calc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A3BCE524ABB38A00E5719D /* Calc.swift */; };
 		B6A3BCE824ABB44500E5719D /* TroopEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A3BCE724ABB44500E5719D /* TroopEditor.swift */; };
@@ -63,6 +64,7 @@
 		237331EF24B2AAAD00D078F7 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		B645CDC124B149AD002F92D0 /* PoiretOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PoiretOne-Regular.ttf"; sourceTree = "<group>"; };
 		B6761A5C24B7E81700BB92D8 /* TroopPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroopPicker.swift; sourceTree = "<group>"; };
+		B6761A6024BBC6C600BB92D8 /* ShieldIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldIcon.swift; sourceTree = "<group>"; };
 		B6A3BCE224ABA28F00E5719D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		B6A3BCE524ABB38A00E5719D /* Calc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calc.swift; sourceTree = "<group>"; };
 		B6A3BCE724ABB44500E5719D /* TroopEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroopEditor.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				B6A3BCE724ABB44500E5719D /* TroopEditor.swift */,
 				B6A3BCE924ABC19500E5719D /* OptimalTroopView.swift */,
 				237331EC24B2A9DD00D078F7 /* TroopIconView.swift */,
+				B6761A6024BBC6C600BB92D8 /* ShieldIcon.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				B6761A5D24B7E81700BB92D8 /* TroopPicker.swift in Sources */,
 				233E39C224A96A72002A931F /* Troop.swift in Sources */,
 				B6A3BCE324ABA28F00E5719D /* UserData.swift in Sources */,
+				B6761A6124BBC6C600BB92D8 /* ShieldIcon.swift in Sources */,
 				B6A3BCE624ABB38A00E5719D /* Calc.swift in Sources */,
 				233E399624A968EA002A931F /* CalcView.swift in Sources */,
 				B6A3BCEA24ABC19500E5719D /* OptimalTroopView.swift in Sources */,

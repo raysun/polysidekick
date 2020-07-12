@@ -49,7 +49,7 @@ struct TroopPicker: View {
 //                                    self.selectedTroop = Troop(imageURL: "Warrior", maxHP: 10, attack: 2, defense: 2)
 //                                }
                         }.sheet(isPresented: self.$isShowingPopover) {
-                            TroopEditor(troop: self.$selectedTroop)
+                            TroopEditor(troop: self.$selectedTroop, isDefender: self.isDefender)
                             if self.selectedTroop.isShip {
                                 Text("Select Troop in \(self.selectedTroop.imageURL)")
                                     .polyFont(size: 24)
