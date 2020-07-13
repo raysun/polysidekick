@@ -24,6 +24,8 @@ final class UserData: ObservableObject {
 
     // Calculate optimal attacks
     func recalculate() {
+        if !(defenders.count > 0 && attackers.count > 0) { return }
+
         let optim = Calc.calculate(defender: defenders.first!, attackers: attackers)
         print(optim)
         var defender = defenders[0]

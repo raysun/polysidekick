@@ -21,6 +21,7 @@
 		B645CDC324B14A29002F92D0 /* PoiretOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B645CDC124B149AD002F92D0 /* PoiretOne-Regular.ttf */; };
 		B6761A5D24B7E81700BB92D8 /* TroopPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6761A5C24B7E81700BB92D8 /* TroopPicker.swift */; };
 		B6761A6124BBC6C600BB92D8 /* ShieldIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6761A6024BBC6C600BB92D8 /* ShieldIcon.swift */; };
+		B6761A6324BBE51000BB92D8 /* PolyFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6761A6224BBE51000BB92D8 /* PolyFont.swift */; };
 		B6A3BCE324ABA28F00E5719D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A3BCE224ABA28F00E5719D /* UserData.swift */; };
 		B6A3BCE624ABB38A00E5719D /* Calc.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A3BCE524ABB38A00E5719D /* Calc.swift */; };
 		B6A3BCE824ABB44500E5719D /* TroopEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A3BCE724ABB44500E5719D /* TroopEditor.swift */; };
@@ -65,6 +66,7 @@
 		B645CDC124B149AD002F92D0 /* PoiretOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PoiretOne-Regular.ttf"; sourceTree = "<group>"; };
 		B6761A5C24B7E81700BB92D8 /* TroopPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroopPicker.swift; sourceTree = "<group>"; };
 		B6761A6024BBC6C600BB92D8 /* ShieldIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShieldIcon.swift; sourceTree = "<group>"; };
+		B6761A6224BBE51000BB92D8 /* PolyFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolyFont.swift; sourceTree = "<group>"; };
 		B6A3BCE224ABA28F00E5719D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		B6A3BCE524ABB38A00E5719D /* Calc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Calc.swift; sourceTree = "<group>"; };
 		B6A3BCE724ABB44500E5719D /* TroopEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TroopEditor.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		233E398524A968EA002A931F = {
 			isa = PBXGroup;
 			children = (
+				B6761A6224BBE51000BB92D8 /* PolyFont.swift */,
 				237331EF24B2AAAD00D078F7 /* .gitignore */,
 				233E399024A968EA002A931F /* Polytopia Sidekick */,
 				233E39A724A968ED002A931F /* Polytopia SidekickTests */,
@@ -331,6 +334,7 @@
 				B6761A6124BBC6C600BB92D8 /* ShieldIcon.swift in Sources */,
 				B6A3BCE624ABB38A00E5719D /* Calc.swift in Sources */,
 				233E399624A968EA002A931F /* CalcView.swift in Sources */,
+				B6761A6324BBE51000BB92D8 /* PolyFont.swift in Sources */,
 				B6A3BCEA24ABC19500E5719D /* OptimalTroopView.swift in Sources */,
 				B6A3BCE824ABB44500E5719D /* TroopEditor.swift in Sources */,
 				237331ED24B2A9DD00D078F7 /* TroopIconView.swift in Sources */,
