@@ -13,10 +13,8 @@ struct TroopPicker: View {
     @EnvironmentObject private var userData: UserData
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var isShowingPopover = false
-    //    @State var previousShip: Troop?
     @State var selectedTroop = Troop(imageURL: "Warrior", maxHP: 10, attack: 2, defense: 2)
     var isDefender = false
-    let troopSize = CGFloat(70.0)
 
     private func addTroop(withTroopInShip troopInShip: Troop? = nil) {
         var troopCopy = selectedTroop.copy()
@@ -40,7 +38,7 @@ struct TroopPicker: View {
                     ForEach(row.cells) { troop in
                         Image(troop.imageURL)
                             .resizable()
-                            .frame(width: self.troopSize, height: self.troopSize)
+                            .frame(width: TROOP_SIZE, height: TROOP_SIZE)
                             .onTapGesture {
                                 self.selectedTroop = troop
                                 self.isShowingPopover = true
@@ -56,7 +54,7 @@ struct TroopPicker: View {
                                                 if !troop.isShip {
                                                     Image(troop.imageURL)
                                                         .resizable()
-                                                        .frame(width: self.troopSize, height: self.troopSize)
+                                                        .frame(width: TROOP_SIZE, height: TROOP_SIZE)
                                                         .onTapGesture {
                                                             self.selectedTroop.putInShip(troop)
                                                     }

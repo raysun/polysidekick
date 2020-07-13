@@ -10,8 +10,7 @@ import Foundation
 import SwiftUI
 
 struct OptimalTroopView: View {
-    let troop: Troop
-    let troopWidth = CGFloat(60.0)
+    let troop: Troop    
     var isOpponent = false
     var shouldShowCalculations = false
 

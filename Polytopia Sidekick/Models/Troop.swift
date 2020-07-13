@@ -18,15 +18,18 @@ extension Row {
         return [
             Row(cells: [
                 Troop(imageURL: "Warrior", maxHP: 10, attack: 2, defense: 2),
-                Troop(imageURL: "Rider", maxHP: 10, attack: 2, defense: 1),
-                Troop(imageURL: "Giant", maxHP: 40, attack: 5, defense: 4),
-                Troop(imageURL: "Knight", maxHP: 15, attack: 3.5, defense: 1),
                 Troop(imageURL: "Swordsman", maxHP: 15, attack: 3, defense: 3),
-
+                Troop(imageURL: "Giant", maxHP: 40, attack: 5, defense: 4),
             ]),
             Row(cells: [
-                Troop(imageURL: "Catapult", maxHP: 15, attack: 4, defense: 0, takesDamageFromOpponent: false),
+                Troop(imageURL: "Rider", maxHP: 10, attack: 2, defense: 1),
+                Troop(imageURL: "Knight", maxHP: 15, attack: 3.5, defense: 1),
+            ]),
+            Row(cells: [
                 Troop(imageURL: "Archer", maxHP: 10, attack: 2, defense: 1, takesDamageFromOpponent: false),
+                Troop(imageURL: "Catapult", maxHP: 15, attack: 4, defense: 0, takesDamageFromOpponent: false),
+            ]),
+            Row(cells: [
                 Troop(imageURL: "Defender", maxHP: 15, attack: 1, defense: 3),
             ]),
             Row(cells: [

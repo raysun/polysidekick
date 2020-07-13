@@ -11,16 +11,15 @@ import SwiftUI
 
 struct TroopIconView: View {
     let troop: Troop
-    let troopSize = CGFloat(60.0)
     var troopInShipSize: CGFloat {
-        troopSize / 2.0
+        TROOP_SIZE / 2.0
     }
     
     var body: some View {
         HStack {
             Image(troop.imageURL)
                 .resizable()
-                .frame(width: troopSize, height: troopSize)
+                .frame(width: TROOP_SIZE, height: TROOP_SIZE)
             if troop.typeOfTroopInShip != "" {
                 Image(troop.typeOfTroopInShip)
                     .resizable()

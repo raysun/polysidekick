@@ -31,7 +31,7 @@ struct CalcView: View {
                     Section(header: Text("Opponent")) {
                         ForEach(userData.defenders) { defender in
                             OptimalTroopView(troop: defender, isOpponent: true, shouldShowCalculations: self.shouldShowCalculations)
-                                .opacity(defender.workingHP.isZero ? 0.4 : 1.0)
+                                .opacity(self.shouldShowCalculations && defender.workingHP.isZero ? 0.4 : 1.0)
                                 .padding()
                         }
                         .onDelete { offsets in
@@ -44,7 +44,7 @@ struct CalcView: View {
                     Section(header: Text("Attackers")) {
                         ForEach(userData.attackers) { attacker in
                             OptimalTroopView(troop: attacker, shouldShowCalculations: self.shouldShowCalculations)
-                                .opacity(attacker.workingHP.isZero ? 0.4 : 1.0)
+                                .opacity(self.shouldShowCalculations && attacker.workingHP.isZero ? 0.4 : 1.0)
                                 .padding()
                         }
                         .onDelete { offsets in
@@ -54,7 +54,7 @@ struct CalcView: View {
                     }
                 }
             }
-//            .id(UUID())
+            .id(UUID())
             .listStyle(GroupedListStyle())
             .navigationBarTitle("Polytoolpia")
             .navigationBarItems(leading:
