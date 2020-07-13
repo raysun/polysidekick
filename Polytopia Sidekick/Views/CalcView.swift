@@ -92,7 +92,7 @@ struct CalcView: View {
                         }
                     }
                 }
-            }
+            }.id(UUID())
             .listStyle(GroupedListStyle())
             .navigationBarTitle("Polytoolpia")
             .navigationBarItems(leading:
