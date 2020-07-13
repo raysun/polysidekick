@@ -11,7 +11,6 @@ import SwiftUI
 struct Row: Identifiable {
     let id = UUID()
     let cells: [Troop]
-    let isShipRow = false
 }
 
 extension Row {
