@@ -32,40 +32,42 @@ struct TroopPicker: View {
     }
     
     var body: some View {
-        VStack {
-            ForEach(Row.all()) { row in
-                HStack(alignment: .center) {
-                    ForEach(row.cells) { troop in
-                        Image(troop.imageURL)
-                            .resizable()
-                            .frame(width: TROOP_SIZE, height: TROOP_SIZE)
-                            .onTapGesture {
-                                self.selectedTroop = troop
-                                self.isShowingPopover = true
-                        }.sheet(isPresented: self.$isShowingPopover) {
-                            TroopEditor(troop: self.$selectedTroop, isDefender: self.isDefender)
-                            if self.selectedTroop.isShip {
-                                Text("Select Troop in \(self.selectedTroop.imageURL)")
-                                    .polyFont(size: 24)
-                                VStack {
-                                    ForEach(Row.all()) { row in
-                                        HStack(alignment: .center) {
-                                            ForEach(row.cells) { troop in
-                                                if !troop.isShip {
-                                                    Image(troop.imageURL)
-                                                        .resizable()
-                                                        .frame(width: TROOP_SIZE, height: TROOP_SIZE)
-                                                        .onTapGesture {
-                                                            self.selectedTroop.putInShip(troop)
+        ScrollView {
+            VStack {
+                ForEach(Row.all()) { row in
+                    HStack(alignment: .center) {
+                        ForEach(row.cells) { troop in
+                            Image(troop.imageURL)
+                                .resizable()
+                                .frame(width: TROOP_SIZE, height: TROOP_SIZE)
+                                .onTapGesture {
+                                    self.selectedTroop = troop
+                                    self.isShowingPopover = true
+                            }.sheet(isPresented: self.$isShowingPopover) {
+                                TroopEditor(troop: self.$selectedTroop, isDefender: self.isDefender)
+                                if self.selectedTroop.isShip {
+                                    Text("Select Troop in \(self.selectedTroop.imageURL)")
+                                        .polyFont(size: 24)
+                                    VStack {
+                                        ForEach(Row.all()) { row in
+                                            HStack(alignment: .center) {
+                                                ForEach(row.cells) { troop in
+                                                    if !troop.isShip {
+                                                        Image(troop.imageURL)
+                                                            .resizable()
+                                                            .frame(width: TROOP_SIZE, height: TROOP_SIZE)
+                                                            .onTapGesture {
+                                                                self.selectedTroop.putInShip(troop)
+                                                        }
                                                     }
                                                 }
                                             }
                                         }
                                     }
                                 }
-                            }
-                            Button("Done") {
-                                self.addTroop()
+                                Button("Done") {
+                                    self.addTroop()
+                                }
                             }
                         }
                     }
