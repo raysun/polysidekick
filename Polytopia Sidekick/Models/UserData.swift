@@ -13,13 +13,11 @@ final class UserData: ObservableObject {
     @Published var defenders = [Troop]()
     @Published var attackers = [Troop]()
     @Published var optimalTroops = [Troop]()
-    @Published var previousShip: Troop?
 
     func reset() {
         defenders.removeAll()
         attackers.removeAll()
         optimalTroops.removeAll()
-        previousShip = nil
     }
 
     // Calculate optimal attacks

@@ -13,22 +13,21 @@ struct TroopPicker: View {
     @EnvironmentObject private var userData: UserData
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     @State var isShowingPopover = false
-    @State var selectedTroop = Troop(imageURL: "Warrior", maxHP: 10, attack: 2, defense: 2)
+    
+    @Binding var selectedTroop: Troop
     var isDefender = false
 
-    private func addTroop(withTroopInShip troopInShip: Troop? = nil) {
-        var troopCopy = selectedTroop.copy()
-        if let troopInShip = troopInShip {
-            troopCopy.putInShip(troopInShip)
-        }
-        if self.userData.defenders.count == 0 {
-            self.userData.defenders.append(troopCopy)
-        } else {
-            self.userData.attackers.append(troopCopy)
-            self.userData.recalculate()
-        }
+    private func addTroop() {
         self.isShowingPopover = false
         self.presentationMode.wrappedValue.dismiss()
+        selectedTroop.isFinishedEditing = true
+//        let troopCopy = selectedTroop.copy()
+//        if self.userData.defenders.count == 0 {
+//            self.userData.defenders.append(troopCopy)
+//        } else {
+//            self.userData.attackers.append(troopCopy)
+//            self.userData.recalculate()
+//        }
     }
     
     var body: some View {

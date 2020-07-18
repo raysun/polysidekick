@@ -16,6 +16,7 @@ struct OptimizationValue {
 struct CalcView: View {
     @EnvironmentObject private var userData: UserData
     @State var defender: Troop? = nil
+    @State var selectedTroop = Troop(imageURL: "Warrior", maxHP: 10, attack: 2, defense: 2)
 
     var isPickingDefender: Bool {
         self.userData.defenders.count < 1
@@ -55,6 +56,18 @@ struct CalcView: View {
                 }
             }
             .id(UUID())
+            .onAppear(perform: {
+                if !self.selectedTroop.isFinishedEditing { return }
+                self.selectedTroop.isFinishedEditing = false
+                
+                let troopCopy = self.selectedTroop.copy()
+                if self.userData.defenders.count == 0 {
+                    self.userData.defenders.append(troopCopy)
+                } else {
+                    self.userData.attackers.append(troopCopy)
+                    self.userData.recalculate()
+                }
+            })
             .listStyle(GroupedListStyle())
             .navigationBarTitle("Polytoolpia")
             .navigationBarItems(leading:
@@ -62,7 +75,7 @@ struct CalcView: View {
                     self.userData.reset()
                 }, trailing:
                 Button(action: {}) {
-                    NavigationLink(destination: TroopPicker(isDefender: isPickingDefender)) {
+                    NavigationLink(destination: TroopPicker(selectedTroop: $selectedTroop, isDefender: isPickingDefender)) {
                         HStack {
                             Image(systemName: "plus")
                             Text(isPickingDefender ? "Opponent" : "Attacker")

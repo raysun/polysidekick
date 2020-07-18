@@ -86,6 +86,7 @@ struct Troop: Identifiable {
         }
     }
     var didAttack = false
+    var isFinishedEditing = false
     
     var scaledAttack: Double {
         attack * workingHP / maxHP
