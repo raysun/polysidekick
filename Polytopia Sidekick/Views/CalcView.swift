@@ -55,7 +55,7 @@ struct CalcView: View {
                     }
                 }
             }
-            .id(UUID())
+//            .id(UUID())
             .onAppear(perform: {
                 if !self.selectedTroop.isFinishedEditing { return }
                 self.selectedTroop.isFinishedEditing = false
